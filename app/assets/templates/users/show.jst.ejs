@@ -1,1 +1,8 @@
-<h1>TEST</h1>
+<h1><%= user.get('username') %></h1>
+<ul>
+	<%reviews.each(function(review) { %>
+		<li>
+		<%= review.get('title') %>
+		</li>
+	<% }) %>
+</ul>

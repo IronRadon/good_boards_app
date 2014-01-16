@@ -19,6 +19,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 					model: user,
 					collection: reviews
 				});
+				console.log(reviews);
 				that._swapView(view);
 			}
 		});
