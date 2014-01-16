@@ -4,7 +4,8 @@ window.GoodBoardsApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new GoodBoardsApp.Routers.Router({$rootEl: $('#content')});
+    Backbone.history.start();
   }
 };
 

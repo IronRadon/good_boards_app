@@ -1,9 +1,11 @@
-GoodBoardsApp.Collections.UserReviews = Backbone.Collections.extend({
-	intialize: function(model, options) {
+GoodBoardsApp.Collections.UserReviews = Backbone.Collection.extend({
+	initialize: function(models, options) {
 		this.user_id = options.user_id;
 	},
 
-	model: GoodBoardsApp.Model.Review,
+	model: GoodBoardsApp.Models.Review,
 
-	url: "api/users" + this.user_id + "/reviews"
+	url: function() {
+		return "api/users/" + this.user_id + "/reviews";
+	}
 });
