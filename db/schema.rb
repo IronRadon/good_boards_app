@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115230619) do
+ActiveRecord::Schema.define(:version => 20140116181335) do
 
   create_table "boardgames", :force => true do |t|
     t.string   "title",       :null => false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20140115230619) do
     t.integer  "user_id",      :null => false
     t.integer  "boardgame_id", :null => false
     t.string   "title",        :null => false
-    t.string   "body",         :null => false
+    t.text     "body",         :null => false
     t.integer  "rating",       :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

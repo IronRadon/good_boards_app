@@ -1,10 +1,12 @@
-<h1><%= user.get('username') %></h1>
+
+<h1>Reviews by <%= user.get('username') %></h1>
 <ul>
 	<%reviews.each(function(review) { %>
 		<li data-id="<%=review.get('id')%>">
-		<a href="#/reviews/<%=review.get('id')%>">
 		<%= review.get('title') %>
-		</a>
+		<div class="wrapper"><%= review.get('body').substr(0, maxLength)%>...
+			<a href="#/reviews/<%=review.get('id')%>">Read More</a>
+		</div>
 		</li>
 	<% }) %>
 </ul>

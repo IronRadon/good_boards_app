@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.dotdotdot
 //= require underscore
 //= require backbone
 //= require good_boards_app
