@@ -1,9 +1,16 @@
 GoodBoardsApp::Application.routes.draw do
-  resources :users, :only => [:new, :create, :show]
+  namespace :api do
+    resources :users, :only => [:new, :create, :show] do
+      resources :reviews, :only => [:index]
+    end
+    
+    resources :boardgames, :only => [:show] do
+      resources :reviews, :only => [:index, :new, :create]
+    end
+  end
+  
   resource :session, :only => [:create, :destroy, :new]
-  resources :boardgames, :only => [:show]
 
   root :to => "root#root"
-
  
 end

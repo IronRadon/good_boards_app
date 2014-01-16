@@ -8,6 +8,4 @@ window.GoodBoardsApp = {
   }
 };
 
-$(document).ready(function(){
-  GoodBoardsApp.initialize();
-});
+
