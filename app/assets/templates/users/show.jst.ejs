@@ -1,8 +1,10 @@
 <h1><%= user.get('username') %></h1>
 <ul>
 	<%reviews.each(function(review) { %>
-		<li>
+		<li data-id="<%=review.get('id')%>">
+		<a href="#/reviews/<%=review.get('id')%>">
 		<%= review.get('title') %>
+		</a>
 		</li>
 	<% }) %>
 </ul>

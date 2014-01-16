@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
 	def index
 		if params[:user_id]
 			@user = User.find(params[:user_id])
@@ -9,5 +9,11 @@ class ReviewsController < ApplicationController
 		end
 
 		render :json => @reviews
+	end
+
+	def show
+		@review = Review.find(params[:id])
+
+		render :json => @review
 	end
 end

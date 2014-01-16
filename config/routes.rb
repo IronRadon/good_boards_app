@@ -7,6 +7,7 @@ GoodBoardsApp::Application.routes.draw do
     resources :boardgames, :only => [:show] do
       resources :reviews, :only => [:index, :new, :create]
     end
+    resources :reviews, :only => [:show]
   end
   
   resource :session, :only => [:create, :destroy, :new]
