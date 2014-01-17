@@ -55,7 +55,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		});
 	},
 
-	newReview: function(:boardgame_id) {
+	newReview: function(boardgame_id) {
 		//instantiate new view
 	},
 
