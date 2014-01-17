@@ -15,16 +15,13 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		var boardgame = new GoodBoardsApp.Models.Boardgame([], {boardgame_id: boardgame_id});
 		boardgame.fetch({
 			success: function() {
-				var reviews = new GoodBoardsApp.Collections.GameReviews([], {boardgame_id: boardgame_id});
-				reviews.fetch({
-					success: function() {
-						var view = new GoodBoardsApp.Views.BoardgameShow({
-							model: boardgame,
-							collection: reviews
-						});
-						that._swapView(view);
-					}
-				})
+				console.log(boardgame.get('reviews'));
+				var reviews = boardgame.get('reviews');
+				var view = new GoodBoardsApp.Views.BoardgameShow({
+					model: boardgame,
+					collection: reviews
+				});
+				that._swapView(view);
 			}
 		})
 	},
@@ -34,16 +31,11 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		var user = new GoodBoardsApp.Models.User([], {user_id: user_id});
 		user.fetch({
 			success: function() {
-				var reviews = new GoodBoardsApp.Collections.UserReviews([], {user_id: user_id});
-				reviews.fetch({
-					success: function() {
-						var view = new GoodBoardsApp.Views.UserShow({
-							model: user,
-							collection: reviews
-						});
-						that._swapView(view);
-					}
+				var view = new GoodBoardsApp.Views.UserShow({
+					model: user,
+					collection: user.get('reviews')
 				});
+				that._swapView(view);
 			}
 		});	
 	},
