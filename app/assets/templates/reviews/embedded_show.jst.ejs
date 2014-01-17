@@ -1,0 +1,10 @@
+<%= console.log("the one from template") %>
+<%= console.log(review) %>
+
+<h4><%= boardgame.get('title') %>:</h4>
+<h5><%= review.get('title') %></h5>
+<h6>Reviewed on:<%= review.get('created_at')%></h6>
+		<div class="wrapper">
+		<%= review.get('body').substr(0, maxLength)%>...
+			<a href="#/reviews/<%=review.get('id')%>">Read More</a>
+		</div>
