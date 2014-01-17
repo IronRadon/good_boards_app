@@ -1,8 +1,8 @@
 GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 	initialize: function(options){
-		this.boardgame = options.boardgame;
-		this.review = options.review;
-		this.user = options.user;
+		this.review = options.model;
+		this.boardgame = options.model.get('boardgame');
+		this.user = options.model.get('user');
 	},
 
 	template: JST["reviews/show"],

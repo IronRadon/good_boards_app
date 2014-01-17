@@ -47,9 +47,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 			success: function() {
 				console.log(review.get('boardgame'));	
 				var view = new GoodBoardsApp.Views.ReviewShow({
-					review: review,
-					boardgame: review.get('boardgame'),
-					user: review.get('user')
+					model: review,
 				});
 				that._swapView(view); 
 			}
