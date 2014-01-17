@@ -4,7 +4,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
-		"boardgames/:boardgame_id": "boardShow", //to_do
+		"boardgames/:boardgame_id": "boardShow", 
 		"boardgames/:boardgame_id/reviews/new": "newReview",
 		"users/:user_id": "userShow",
 		"reviews/:review_id": "reviewShow"
