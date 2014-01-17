@@ -22,7 +22,7 @@ class Api::ReviewsController < ApplicationController
 		p params
 		@review = Review.new(params[:review])
 
-		if @review.save!
+		if @review.save
 			render :json => @review
 		else
 			render :json => @review.errors #or do I want full_messages?

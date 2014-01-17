@@ -9,6 +9,12 @@ GoodBoardsApp.Views.BoardgameEmbedShow = Backbone.View.extend({
 		});
 
 		this.$el.html(renderedContent);
+
+		this.$('#star').raty({
+    				readOnly: true,
+    				score: this.model.get('rating'),
+    				path: '/assets'
+  				});
 		return this;
 	}
 })

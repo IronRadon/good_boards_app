@@ -2,14 +2,22 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
 	template: JST["reviews/new"],
 
 	events: {
-		"submit form": "submit" //check to make sure syntax is correct
+		"submit form": "submit"
 	},
 
 	render: function() {
 		var renderedContent = this.template({
 			boardgame: this.model
 		});
+
+		 console.log(this.$('#star'))
+
 		this.$el.html(renderedContent);
+		this.$('#star').raty({
+    				readOnly: false,
+    				score: 3,
+    				path: '/assets'
+  				});
 
 		return this;
 	},
@@ -17,11 +25,18 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
 	submit: function(event) {
 		event.preventDefault();
 		var attrs = $(event.currentTarget).serializeJSON();
-		var review = new GoodBoardsApp.Models.Review(attrs);
-		console.log(attrs);
+		attrs.review.rating = attrs.score;
+		var review = new GoodBoardsApp.Models.Review(attrs.review);
+
 		review.save({}, {
 			success: function() {
-				Backbone.history.navigate("#reviews/"+review.get('id'), {trigger: true}); //change where it goes?
+				boardgame = new GoodBoardsApp.Models.Boardgame({
+					id: attrs.review.boardgame_id,
+					rating: attrs.score
+				});
+				console.log(boardgame);
+				boardgame.save();
+				Backbone.history.navigate("#reviews/"+review.get('id'), {trigger: true});
 			}
 		});
 		

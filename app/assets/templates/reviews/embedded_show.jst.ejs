@@ -1,5 +1,10 @@
-<h4><%= boardgame.get('title') %>:</h4>
+<h4><%= boardgame.get('title') %>:
+<div id='star'></div>
+</h4>
+ 
 <h5><%= review.get('title') %></h5>
+	<%= review.get('rating') %>
+
 <h6>Reviewed on:<%= review.get('created_at')%></h6>
 		<div class="wrapper">
 		<%= review.get('body').substr(0, maxLength)%>...

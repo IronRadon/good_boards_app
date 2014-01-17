@@ -16,6 +16,11 @@ GoodBoardsApp.Views.ReviewEmbedShow = Backbone.View.extend({
 		})
 
 		this.$el.html(renderedContent);
+		this.$('#star').raty({
+    				readOnly: false,
+    				score: this.review.get('rating'),
+    				path: '/assets'
+  				});
 		return this;
 	}
 })

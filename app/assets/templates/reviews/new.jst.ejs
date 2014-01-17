@@ -6,9 +6,9 @@
 	<label for="body">Review</label>
 	<input type="textarea" id="body" name="review[body]">
 	<br>
-	<label for="rating">Rating:</label>
-	<input type="number" id="rating" name="review[rating]">
 	<input type="hidden" name="review[boardgame_id]" value="<%=boardgame.get('id')%>">
+	<div id='star'></div>
 
 	<input type="submit" value="Submit Review">
 </form>
+

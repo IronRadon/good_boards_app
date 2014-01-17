@@ -1,6 +1,6 @@
 class ChangeColumnTypeInReviews < ActiveRecord::Migration
   def up
-  	change_column :reviews, :bodyrails c, :text
+  	change_column :reviews, :body, :text
   end
 
   def down
