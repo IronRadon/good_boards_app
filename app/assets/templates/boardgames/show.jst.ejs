@@ -1,4 +1,5 @@
 <%= boardgame.get('title') %>
+<a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Review this Game</a>
 <h1>Reviews</h1>
 <ul>
 	<%reviews.each(function(review) { %>
