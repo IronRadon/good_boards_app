@@ -1,5 +1,5 @@
 GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
-	template: JST["reviews/new"], //not yet created
+	template: JST["reviews/new"],
 
 	events: {
 		"submit form": "submit" //check to make sure syntax is correct
@@ -17,10 +17,11 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
 	submit: function(event) {
 		event.preventDefault();
 		var attrs = $(event.currentTarget).serializeJSON();
-		var review = new GoodBoardsApp.Models.Review(attrs); //does this work or must we set attrs?
+		var review = new GoodBoardsApp.Models.Review(attrs);
+		console.log(attrs);
 		review.save({}, {
 			success: function() {
-				Backbone.history.navigate("/", {trigger: true}); //change where it goes?
+				Backbone.history.navigate("#reviews/"+review.get('id'), {trigger: true}); //change where it goes?
 			}
 		});
 		

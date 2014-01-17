@@ -19,10 +19,10 @@ class Api::ReviewsController < ApplicationController
 
 	def create
 		params[:review][:user_id] = current_user.id
-		params[:review][:boardgame_id] = params[:boardgame_id]
+		p params
 		@review = Review.new(params[:review])
 
-		if review.save
+		if @review.save!
 			render :json => @review
 		else
 			render :json => @review.errors #or do I want full_messages?
