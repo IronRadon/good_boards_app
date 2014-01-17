@@ -1,0 +1,14 @@
+<h2>Reviewing <%= boardgame.get('title') %></h2>
+<form>
+	<label for="title">Title</label>
+	<input type="text" id="title" name="review[title]">
+	<br>
+	<label for="body">Review</label>
+	<input type="textarea" id="body" name="review[body]">
+	<br>
+	<label for="rating">Rating:</label>
+	<input type="number" id="rating" name="review[rating]">
+	<input type="hidden" name="review[boardgame_id]" value="<%=boardgame.get('id')%>">
+
+	<input type="submit" value="Submit Review">
+</form>

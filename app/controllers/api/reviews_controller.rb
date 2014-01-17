@@ -16,4 +16,16 @@ class Api::ReviewsController < ApplicationController
 
 		render :json => @review.to_json(:include => [:user, :boardgame])
 	end
+
+	def create
+		params[:review][:user_id] = current_user.id
+		p params
+		@review = Review.new(params[:review])
+
+		if @review.save!
+			render :json => @review
+		else
+			render :json => @review.errors #or do I want full_messages?
+		end
+	end
 end

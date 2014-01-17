@@ -12,7 +12,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 
 	boardShow: function(boardgame_id) {
 		var that = this;
-		var boardgame = new GoodBoardsApp.Models.Boardgame([], {boardgame_id: boardgame_id});
+		var boardgame = new GoodBoardsApp.Models.Boardgame({id: boardgame_id});
 		boardgame.fetch({
 			success: function() {
 				console.log(boardgame.get('reviews'));
@@ -42,8 +42,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 
 	reviewShow: function(review_id) {
 		var that = this;
-		var review = new GoodBoardsApp.Models.Review();
-		review.set({id: review_id});
+		var review = new GoodBoardsApp.Models.Review({id: review_id});
 		review.fetch({
 			success: function() {
 				console.log(review.get('boardgame'));	
@@ -56,7 +55,16 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 	},
 
 	newReview: function(boardgame_id) {
-		//instantiate new view
+		var that = this;
+		var boardgame = new GoodBoardsApp.Models.Boardgame({id: boardgame_id});
+		boardgame.fetch({
+			success: function() {
+				var view = new GoodBoardsApp.Views.ReviewNew({
+					model: boardgame
+				});
+				that._swapView(view);
+			}
+		})
 	},
 
 	_swapView: function(view) {

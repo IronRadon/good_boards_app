@@ -1,7 +1,7 @@
 GoodBoardsApp.Models.Boardgame = Backbone.Model.extend({
-	initialize: function(model, options){
-		this.boardgame_id = options.boardgame_id;
-	},
+	// initialize: function(model, options){
+	// 	this.boardgame_id = options.boardgame_id;
+	// },
 
 	parse: function (data) {
 	  var reviews = data.reviews;
@@ -12,6 +12,10 @@ GoodBoardsApp.Models.Boardgame = Backbone.Model.extend({
 	},
 
 	url: function(){
-		return 'api/boardgames/' + this.boardgame_id
+		if (this.id) {
+			return 'api/boardgames/' + this.id
+		} else {
+			return 'api/boardgames'
+		}
 	}
 })
