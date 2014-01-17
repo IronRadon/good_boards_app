@@ -4,9 +4,29 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
-		"boardgames/:boardgame_id": "boardShow",
+		"boardgames/:boardgame_id": "boardShow", //to_do
+		"boardgames/:boardgame_id/reviews/new": "newReview",
 		"users/:user_id": "userShow",
 		"reviews/:review_id": "reviewShow"
+	},
+
+	boardShow: function(boardgame_id) {
+		var that = this;
+		var boardgame = new GoodBoardsApp.Models.Boardgame([], {boardgame_id: boardgame_id});
+		boardgame.fetch({
+			success: function() {
+				var reviews = new GoodBoardsApp.Collections.GameReviews([], {boardgame_id: boardgame_id});
+				reviews.fetch({
+					success: function() {
+						var view = new GoodBoardsApp.Views.BoardgameShow({
+							model: boardgame,
+							collection: reviews
+						});
+						that._swapView(view);
+					}
+				})
+			}
+		})
 	},
 
 	userShow: function(user_id) {

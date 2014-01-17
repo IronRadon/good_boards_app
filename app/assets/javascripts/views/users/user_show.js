@@ -14,10 +14,10 @@ GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 			var boardgame_id = review.get('boardgame_id');
 			var id = review.get('id');
 			var boardgame = new GoodBoardsApp.Models.Boardgame([], {boardgame_id: boardgame_id});
-			console.log(review);
 			boardgame.fetch({
 				success: function() {
 					var view = new GoodBoardsApp.Views.ReviewEmbedShow({
+						user: that.model,
 						boardgame: boardgame,
 						review: review
 					});
