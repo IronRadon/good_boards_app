@@ -1,7 +1,7 @@
 GoodBoardsApp.Models.Review = Backbone.Model.extend({
-	initialize: function(models, options) {
-		this.id = options.id
-	},
+	// initialize: function(models, options) {
+	// 	this.id = options.id
+	// },
 
 	parse: function (data) {
 	  var user = data.user;
@@ -16,6 +16,11 @@ GoodBoardsApp.Models.Review = Backbone.Model.extend({
 	},
 
 	url: function(){
-		return 'api/reviews/' + this.id
+		if (this.id) {
+			return 'api/reviews/' + this.id
+		}else{
+			return '/reviews'
+		}
+		
 	}
 });

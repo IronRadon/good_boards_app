@@ -42,7 +42,8 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 
 	reviewShow: function(review_id) {
 		var that = this;
-		var review = new GoodBoardsApp.Models.Review([], {id: review_id});
+		var review = new GoodBoardsApp.Models.Review();
+		review.set({id: review_id});
 		review.fetch({
 			success: function() {
 				console.log(review.get('boardgame'));	
