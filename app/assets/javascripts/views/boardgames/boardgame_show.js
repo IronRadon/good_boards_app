@@ -7,6 +7,11 @@ GoodBoardsApp.Views.BoardgameShow = Backbone.View.extend({
 			boardgame: this.model
 		});
 		this.$el.html(renderedContent);
+		this.$('#star').raty({
+    				readOnly: true,
+    				score: this.model.get('rating'),
+    				path: '/assets'
+  				});
 
 		var that = this;
 		this.collection.each(function(review){
@@ -15,7 +20,7 @@ GoodBoardsApp.Views.BoardgameShow = Backbone.View.extend({
 			var user = new GoodBoardsApp.Models.User([], {user_id: user_id});
 			user.fetch({
 				success: function() {
-					var view = new GoodBoardsApp.Views.ReviewEmbedShow({
+					var view = new GoodBoardsApp.Views.ReviewEmbedShowBoard({
 						boardgame: that.model,
 						review: review,
 						user: user
