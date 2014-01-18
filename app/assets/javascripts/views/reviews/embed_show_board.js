@@ -34,7 +34,8 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 				var review = new GoodBoardsApp.Models.Review({
 					id: that.review.get('id'),
 					user_id: that.user.get('id'),
-					boardgame_id: that.boardgame.get('id')
+					boardgame_id: that.boardgame.get('id'),
+					rating: score
 				});
 				console.log("i'm saving")
 				review.save({
