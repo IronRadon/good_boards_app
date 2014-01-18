@@ -28,7 +28,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 
 	userShow: function(user_id) {
 		var that = this;
-		var user = new GoodBoardsApp.Models.User([], {user_id: user_id});
+		var user = new GoodBoardsApp.Models.User({id: user_id});
 		user.fetch({
 			success: function() {
 				var view = new GoodBoardsApp.Views.UserShow({
