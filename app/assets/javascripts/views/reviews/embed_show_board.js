@@ -1,8 +1,8 @@
 GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 	initialize: function(options){
-		this.boardgame = options.review.get('boardgame');
+		this.boardgame = options.boardgame;
 		this.review = options.review;
-		this.user = options.review.get('user');
+		this.user = options.user;
 	},
 
 	events: {
