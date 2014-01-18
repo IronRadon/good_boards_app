@@ -5,10 +5,6 @@ class Boardgame < ActiveRecord::Base
 
   has_many(:reviews)
 
-  # def average_rating 
-  # 	self.total_rating / (self.reviews.all.count)
-  # end
-
   def average_rating
   	total_score = 0.0
   	self.reviews.each do |review|

@@ -6,7 +6,7 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 	},
 
 	events: {
-		// "click #star": "updateRating" 
+		"click #star": "updateRating" 
 	},
 
 	template: JST["reviews/embedded_show_board"],
@@ -33,8 +33,6 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 			if (YN === true) {
 				that.review.set({
 					id: that.review.get('id'),
-					user_id: that.user.get('id'),
-					boardgame_id: that.boardgame.get('id'),
 					rating: score
 				});
 				console.log("i'm saving")
@@ -66,18 +64,7 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 	},
 
 	updateRating: function(event) {
-		// event.preventDefault();
-		// var YN = confirm("YOU DONE CLICKED, SON");
-		// console.log(YN);
-		// console.log($(currentTarget).serializeJSON);
-
-		// if (YN === true) {
-		// 	var review = new GoodBoardsApp.Models.Review({
-		// 		id: this.review.get('id'),
-		// 		user_id: this.user.get('id'),
-		// 		boardgame_id: this.boardgame.get('id')
-		// 	});
-		// 	review.save();
-		// }
+		// console.log("Update Rating")
+		// console.log($("input[name='score']"))
 	}
 })
