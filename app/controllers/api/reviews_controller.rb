@@ -32,7 +32,6 @@ class Api::ReviewsController < ApplicationController
 	def update
 		@review = Review.find(params[:id])
 		@review.update_attributes(params[:review])
-
 		render :json => @review
 	end
 end

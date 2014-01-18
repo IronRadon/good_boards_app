@@ -3,6 +3,13 @@ GoodBoardsApp.Collections.UserReviews = Backbone.Collection.extend({
 		this.user_id = options.user_id;
 	},
 
+	comparator: function(review) {
+		var date = review.get('updated_at');
+		parsed = Date.parse(date);
+
+		return -(parsed);
+	},
+
 	model: GoodBoardsApp.Models.Review,
 
 	url: function() {

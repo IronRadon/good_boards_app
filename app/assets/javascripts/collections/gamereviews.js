@@ -6,8 +6,6 @@ GoodBoardsApp.Collections.GameReviews = Backbone.Collection.extend({
 	comparator: function(review) {
 		var date = review.get('updated_at');
 		parsed = Date.parse(date);
-		console.log(parsed);
-		console.log(new Date(parsed));
 
 		return -(parsed);
 	},

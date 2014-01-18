@@ -9,7 +9,14 @@ class Api::BoardgamesController< ApplicationController
 		@boardgame = Boardgame.find(params[:id])
 		p @boardgame.total_rating
 		p params[:rating]
-		new_total = @boardgame.total_rating += params[:rating].to_f
+		p params[:old_rating]
+		if params[:review_id]
+			@boardgame.total_rating = @boardgame.total_rating - params[:old_rating] + params[:rating].to_f
+			new_total = @boardgame.total_rating
+		else
+			@boardgame.total_rating = @boardgame.total_rating + params[:rating].to_f
+			new_total = @boardgame.total_rating
+		end
 		p new_total
 		p @boardgame.reviews.count
 		@boardgame.rating = (@boardgame.average_rating).round(2)
