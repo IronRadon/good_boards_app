@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-	before_filter :check_authorization, :only => [:show]
+	# before_filter :check_authorization, :only => [:show]
 	def create
 		@user = User.new(params[:user])
 		if @user.save
