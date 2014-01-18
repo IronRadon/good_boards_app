@@ -1,13 +1,14 @@
-<h4><%= boardgame.get('title') %>:
-Avg Rating:<div id='avg-rating'></div> <%= boardgame.get('rating') %>
+<h4>Reviewed By:
+	<%= user.get('username') %>:
+	<div id='star'></div>
 </h4>
-User Rating:<div id='star'></div>
+<h6>Reviewed on:<%= review.get('created_at')%></h6>
 
  
 <h5><%= review.get('title') %></h5>
 	<%= review.get('rating') %>
 
-<h6>Reviewed on:<%= review.get('created_at')%></h6>
+
 		<div class="wrapper">
 		<%= review.get('body').substr(0, maxLength)%>...
 			<a href="#/reviews/<%=review.get('id')%>">Read More</a>

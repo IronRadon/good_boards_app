@@ -2,5 +2,8 @@
 
 
 <h2><%= review.get('title')%></h2>
-<h5>Reviewed by: <%= user.get('username') %></h5>
-<%= review.get('body') %>
+<h4>Reviewed by: <%= user.get('username') %>  Rating: <div id="star"></div>
+Check Rating:<%= review.get('rating') %></h4>
+<div class="wrapper-test">
+	<%= review.get('body') %>
+</div>

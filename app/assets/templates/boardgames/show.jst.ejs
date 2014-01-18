@@ -1,4 +1,6 @@
-<%= boardgame.get('title') %>
+<h1><%= boardgame.get('title') %></h1>
+Rating: <div id="star"></div><%= boardgame.get('rating') %>
+
 <a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Review this Game</a>
 <h1>Reviews</h1>
 <ul>

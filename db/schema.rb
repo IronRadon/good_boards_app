@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116181335) do
+ActiveRecord::Schema.define(:version => 20140117171759) do
 
   create_table "boardgames", :force => true do |t|
-    t.string   "title",       :null => false
-    t.text     "description", :null => false
+    t.string   "title",                         :null => false
+    t.text     "description",                   :null => false
     t.float    "rating"
     t.string   "num_players"
     t.string   "website"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.float    "total_rating", :default => 0.0
   end
 
   add_index "boardgames", ["rating"], :name => "index_boardgames_on_rating"

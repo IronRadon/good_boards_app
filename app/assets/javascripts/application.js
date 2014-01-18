@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON.min
+//= require jquery.raty
 //= require jquery.dotdotdot
 //= require jquery.raty
 //= require underscore
