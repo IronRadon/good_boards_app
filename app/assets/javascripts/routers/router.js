@@ -32,8 +32,8 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		user.fetch({
 			success: function() {
 				var view = new GoodBoardsApp.Views.UserShow({
-					model: user,
-					collection: user.get('reviews')
+					model: user
+					// collection: user.get('reviews')
 				});
 				that._swapView(view);
 			}

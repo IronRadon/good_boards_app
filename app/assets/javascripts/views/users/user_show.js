@@ -1,15 +1,15 @@
 GoodBoardsApp.Views.UserShow = Backbone.View.extend({
-	template: JST["users/show"],  //must make template
+	template: JST["users/show"],
 
 	render: function() {
 		var renderedContent = this.template({
 			user: this.model,
-			reviews: this.collection
+			reviews: this.model.get('reviews')
 			// maxLength: 500 
 		});
 		this.$el.html(renderedContent);
 
-		this.collection.each(function(review){
+		this.model.get('reviews').each(function(review){
 			var that = this;
 			var boardgame_id = review.get('boardgame_id');
 			var id = review.get('id');
