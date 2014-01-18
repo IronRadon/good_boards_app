@@ -8,7 +8,7 @@ GoodBoardsApp.Views.BoardgameShow = Backbone.View.extend({
 
 	render: function(){
 		var renderedContent = this.template({
-			reviews: this.collection,
+			reviews: this.model.get('reviews'),
 			boardgame: this.model
 		});
 		this.$el.html(renderedContent);
