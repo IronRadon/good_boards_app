@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140117171759) do
+ActiveRecord::Schema.define(:version => 20140118192400) do
 
   create_table "boardgames", :force => true do |t|
     t.string   "title",                         :null => false
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20140117171759) do
   end
 
   add_index "categories", ["title"], :name => "index_categories_on_title", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "review_id",  :null => false
+    t.text     "body",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["review_id"], :name => "index_comments_on_review_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "reviews", :force => true do |t|
     t.integer  "user_id",      :null => false

@@ -7,3 +7,9 @@ Check Rating:<%= review.get('rating') %></h4>
 <div class="wrapper-test">
 	<%= review.get('body') %>
 </div>
+<h4>Comments</h4>
+	<ul>
+		<% review.get('comments').each( function(comment) { %>
+			<li><%= comment.get('body') %></li>
+		<% }) %>
+	</ul>

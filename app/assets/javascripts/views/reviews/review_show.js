@@ -1,8 +1,6 @@
 GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 	initialize: function(options){
 		this.review = options.model;
-		this.boardgame = options.model.get('boardgame');
-		this.user = options.model.get('user');
 	},
 
 	template: JST["reviews/show"],
@@ -10,7 +8,7 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 	render: function(){
 		var renderedContent = this.template({
 			review: this.review,
-			user: this.user
+			user: this.review.get('user')
 		});
 		this.$el.html(renderedContent);
 		this.$('#star').raty({
@@ -20,7 +18,7 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
   				});
 
 		var embeddedview = new GoodBoardsApp.Views.BoardgameEmbedShow({
-			model: this.boardgame
+			model: this.review.get('boardgame')
 		});
 		this.$('#boardgame-info').html(embeddedview.render().$el);
 		 //  this.$(".wrapper-test").dotdotdot({

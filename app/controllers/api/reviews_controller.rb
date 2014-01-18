@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
 	def show
 		@review = Review.find(params[:id])
 
-		render :json => @review.to_json(:include => [:user, :boardgame])
+		render :json => @review.to_json(:include => [:user, :boardgame, :comments])
 	end
 
 	def create

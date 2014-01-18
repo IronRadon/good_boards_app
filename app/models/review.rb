@@ -4,4 +4,6 @@ class Review < ActiveRecord::Base
 
   belongs_to(:user)
   belongs_to(:boardgame)
+
+  has_many(:comments)
 end
