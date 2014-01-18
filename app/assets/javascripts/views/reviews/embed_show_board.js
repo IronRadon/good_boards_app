@@ -6,7 +6,7 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 	},
 
 	events: {
-		// "click #star": "updateRating" //clearer to name updateReview?
+		// "click #star": "updateRating" 
 	},
 
 	template: JST["reviews/embedded_show_board"],
@@ -47,10 +47,8 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 						// 	old_rating: old_rating,
 						// 	rating:score
 						// });
-						boardgame = new GoodBoardsApp.Models.Boardgame({
+						boardgame = new GoodBoardsApp.Models.Boardgame({ //listening?
 							id: that.boardgame.get('id'),
-							review_id: that.review.get('id'),
-							old_rating: old_rating,
 							rating: score
 						});
 					console.log(boardgame);
