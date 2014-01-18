@@ -34,7 +34,6 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
 					id: attrs.review.boardgame_id,
 					rating: attrs.score
 				});
-				console.log(boardgame);
 				boardgame.save();
 				Backbone.history.navigate("#reviews/"+review.get('id'), {trigger: true});
 			}

@@ -5,6 +5,10 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 
 	template: JST["reviews/show"],
 
+	events: {
+		"submit form" :"submit"
+	},
+
 	render: function(){
 		var renderedContent = this.template({
 			review: this.review,
@@ -30,5 +34,18 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 	  // })
 
 		return this;
+	},
+
+	submit: function(event) {
+		event.preventDefault();
+		var attrs = $(event.currentTarget).serializeJSON();
+		attrs.comment.review_id = this.review.get('id')
+		comment = new GoodBoardsApp.Models.Comment(attrs);
+		comment.save({
+			success: function(){
+				console.log("i saved")
+			}
+		})
+			
 	}
 });
