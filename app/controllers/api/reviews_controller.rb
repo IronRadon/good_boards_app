@@ -33,6 +33,8 @@ class Api::ReviewsController < ApplicationController
 	def update
 		@review = Review.find(params[:id])
 		@review.update_attributes(params[:review])
+		@boardgame = Boardgame.find(@review.boardgame.id)
+		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))
 		render :json => @review
 	end
 end

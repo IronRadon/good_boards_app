@@ -48,10 +48,13 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 				that.review.save({}, {
 					success: function() {
 						console.log("i saved");
-						that.boardgame.save({rating: score}, {
+						
+						console.log(that.boardgame.get('reviews'))
+						that.boardgame.fetch({
 						success: function(){
 							console.log("i also saved")
-							that.boardgame.get('reviews').set([that.review], {remove: false});
+							console.log(that.boardgame)
+							that.boardgame.get('reviews').add([that.review], {merge:true});
 							console.log(that.boardgame.get('reviews'))
 						}
 					});
