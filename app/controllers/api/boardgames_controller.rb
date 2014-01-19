@@ -1,4 +1,5 @@
 class Api::BoardgamesController< ApplicationController
+
 	def show
 		@boardgame = Boardgame.find(params[:id])
 
@@ -10,5 +11,17 @@ class Api::BoardgamesController< ApplicationController
 		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))
 
 		render :json => @boardgame
+	end
+
+	def index
+		@boardgames = Boardgame.all
+
+		@boardgames = @boardgames.map do |boardgame|
+			boardgame.title
+		end
+
+
+
+		render :json => @boardgames
 	end
 end

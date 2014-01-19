@@ -15,7 +15,7 @@
 //= require jquery.serializeJSON.min
 //= require jquery.raty
 //= require jquery.dotdotdot
-//= require jquery.raty
+//= require typeahead
 //= require underscore
 //= require backbone
 //= require good_boards_app

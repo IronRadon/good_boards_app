@@ -8,6 +8,9 @@
 	{"current_user_id": <%= user_id.to_json.html_safe %>} 
 </script> 
 
+
+
+
 <script>
 	$(document).ready(function(){
 	  GoodBoardsApp.initialize(
@@ -21,7 +24,18 @@
 	//   	after: "a.readmore"
 	//   })
 
-	});
-</script>
 
+
+	$('input#test').typeahead({
+    		name: 'boardgames',
+	        	prefetch: 'http://localhost:3000/api/boardgames.json',
+	        	ttl: 1
+		        
+ 		 })
+	});
+
+	
+
+</script>
+<input type= "text" id="test">
 <div id='content'></div>

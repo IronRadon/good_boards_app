@@ -6,7 +6,6 @@ gem 'rails', '3.2.16'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'jquery-dotdotdot-rails'
 
 
 # Gems used only for assets and not required
@@ -26,6 +25,7 @@ gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'better_errors'
 gem 'binding_of_caller'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
