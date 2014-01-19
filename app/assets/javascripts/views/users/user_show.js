@@ -8,8 +8,6 @@ GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 			// maxLength: 500 
 		});
 
-		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html());
-		console.log(current_user_id);
 		this.$el.html(renderedContent);
 
 		this.model.get('reviews').each(function(review){

@@ -19,10 +19,18 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 			boardgame: this.boardgame,
 			review: this.review,
 			maxLength: 500
-		})
+		});
+		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html()).current_user_id;
+		var user_match = function() {         //candidate for refactoring
+			if (current_user_id === that.review.get('user_id')) {
+				return false
+			}else{
+				return true
+			}
+		};
 		this.$el.html(renderedContent);
 		this.$('#star').raty({	
-		readOnly: false,
+		readOnly: user_match(),
 		score: this.review.get('rating'),
 		path: '/assets',
 		click: function(score, event) {

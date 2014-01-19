@@ -11,13 +11,25 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 	},
 
 	render: function(){
+		var that = this;
 		var renderedContent = this.template({
 			review: this.review,
 			user: this.review.get('user')
 		});
 		this.$el.html(renderedContent);
+
+		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html()).current_user_id;
+
+		var user_match = function() {         //candidate for refactoring
+			if (current_user_id === that.review.get('user_id')) {
+				return false
+			}else{
+				return true
+			}
+		}
+
 		this.$('#star').raty({
-    				readOnly: false,
+    				readOnly: user_match(),
     				score: this.review.get('rating'),
     				path: '/assets'
   				});
