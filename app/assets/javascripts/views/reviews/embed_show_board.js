@@ -41,26 +41,18 @@ GoodBoardsApp.Views.ReviewEmbedShowBoard = Backbone.View.extend({
 			if (YN === true) {
 				that.review.set({
 					id: that.review.get('id'),
+					// user_id: that.user.get('id'),
 					rating: score
 				});
 				console.log("i'm saving")
 				that.review.save({}, {
 					success: function() {
 						console.log("i saved");
-						// that.boardgame.set({
-						// 	id:that.boardgame.get('id'),
-						// 	review_id: that.review.get('id'),
-						// 	old_rating: old_rating,
-						// 	rating:score
-						// });
-						boardgame = new GoodBoardsApp.Models.Boardgame({ //listening?
-							id: that.boardgame.get('id'),
-							rating: score
-						});
-					console.log(boardgame);
-					boardgame.save({}, {
+						that.boardgame.save({rating: score}, {
 						success: function(){
 							console.log("i also saved")
+							that.boardgame.get('reviews').set([that.review], {remove: false});
+							console.log(that.boardgame.get('reviews'))
 						}
 					});
 					}

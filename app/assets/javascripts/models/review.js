@@ -5,10 +5,10 @@ GoodBoardsApp.Models.Review = Backbone.Model.extend({
 	  var boardgame = data.boardgame;
 	  var comments = data.comments;
 		data.user = new GoodBoardsApp.Models.User(user, {
-			id: user.id
+			id: data.user_id
 		});
 		data.boardgame = new GoodBoardsApp.Models.Boardgame(boardgame, {
-			id: boardgame.id
+			id: data.boardgame_id
 		});
 		data.comments = new GoodBoardsApp.Collections.Comments(comments, {
 			review_id: data.id
