@@ -1,19 +1,22 @@
 class Api::BoardgamesController< ApplicationController
 
 	def show
-		@boardgame = Boardgame.where(:id => params[:id]).first
+		#find will immediately explode if no record is found
+		@boardgame = Boardgame.find_by_id(params[:id])
 
 		if @boardgame
 			render :json => @boardgame.to_json(:include => :reviews)
 		else
 			@boardgame = Boardgame.where(:slug => params[:id].slugify).first
+
 			if @boardgame
 				render :json => @boardgame.to_json(:include => :reviews)
 			else
-				render :json => params[:id]
+				render :json => params[:id].slugify
 			end
 		end
 	end
+
 
 	def update
 		@boardgame = Boardgame.find(params[:id])
