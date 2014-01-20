@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120214216) do
+ActiveRecord::Schema.define(:version => 20140120222439) do
 
   create_table "boardgames", :force => true do |t|
     t.string   "title",                               :null => false
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(:version => 20140120214216) do
     t.integer  "minplayers"
     t.integer  "maxplayers"
     t.string   "boardgamepublisher"
+    t.string   "slug"
   end
 
   add_index "boardgames", ["rating"], :name => "index_boardgames_on_rating"
+  add_index "boardgames", ["slug"], :name => "index_boardgames_on_slug", :unique => true
   add_index "boardgames", ["title"], :name => "index_boardgames_on_title", :unique => true
 
   create_table "categories", :force => true do |t|
@@ -49,6 +51,17 @@ ActiveRecord::Schema.define(:version => 20140120214216) do
 
   add_index "comments", ["review_id"], :name => "index_comments_on_review_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "reviews", :force => true do |t|
     t.integer  "user_id",      :null => false

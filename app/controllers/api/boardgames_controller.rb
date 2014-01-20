@@ -1,9 +1,18 @@
 class Api::BoardgamesController< ApplicationController
 
 	def show
-		@boardgame = Boardgame.find(params[:id])
+		@boardgame = Boardgame.where(:id => params[:id]).first
 
-		render :json => @boardgame.to_json(:include => :reviews)
+		if @boardgame
+			render :json => @boardgame.to_json(:include => :reviews)
+		else
+			@boardgame = Boardgame.where(:slug => params[:id].slugify).first
+			if @boardgame
+				render :json => @boardgame.to_json(:include => :reviews)
+			else
+				render :json => params[:id]
+			end
+		end
 	end
 
 	def update

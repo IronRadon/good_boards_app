@@ -32,7 +32,18 @@
       window.location.href = '/#boardgames/' + datum.id;
     });
 
+  $("input#search").on("keypress", function(event) {
+    if(event.which == 13) {
+    event.preventDefault();
+        window.location.href= '/#boardgames/' + ($("input#search").val());
+    }
   });
+
+
+  });
+
+
+
   </script>
 </head>
 
@@ -60,9 +71,9 @@
                     <li><%= link_to("Sign Up", new_users_url) %></li>
                   <% end %>
               </ul>
-              <form class="navbar-form navbar-right" role="search">
+              <form class="navbar-form navbar-right search-submit" role="search">
                   <div class="form-group">
-                  <input type="text" class="typeahead" id="search" placeholder="Search">
+                  <input type="text" class="typeahead" id="search" placeholder="Search" name="boardgame[title]">
                   </div>
               </form>
           </div>
