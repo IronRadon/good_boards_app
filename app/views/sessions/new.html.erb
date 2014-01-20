@@ -1,12 +1,26 @@
-<h1>Sign In</h1>
-<form action="<%= session_url %>" method="POST">
-	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-	<label for="username">Username</label>
-	<input type="text" id="username" name="user[username]">
-	<br>
-	<label for ="password">Password</label>
-	<input type="text" id="password" name="user[password]">
-	<br>
-
-	<input type="submit" value="Sign In">
-</form>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-body">
+                <form action="<%= session_url %>" role="form" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Username" type="text" id="username" name="user[username]" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" type="password" name="user[password]">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                            </label>
+                        </div>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign In">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

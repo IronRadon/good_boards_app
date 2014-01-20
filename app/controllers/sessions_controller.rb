@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
 		@user.reset_session_token!
 		params[:session_token] = nil
 
-		render :json => @user
+		redirect_to root_url
 	end
 end

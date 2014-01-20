@@ -8,36 +8,4 @@
 	{"current_user_id": <%= user_id.to_json.html_safe %>} 
 </script> 
 
-
-
-
-<script>
-$(document).ready(function(){
-  GoodBoardsApp.initialize();
-	$('input#search').typeahead({
-    	name: 'boardgames',
-		valueKey: 'title',
-		prefetch: {
-			url: '/api/boardgames.json',
-		    ttl: 1,
-			filter: function(data) {
-				retval = [];
-				for (var i = 0;  i < data.length;  i++) {
-			        	retval.push({
-			                	id: data[i].id,
-				                title: data[i].title
-				        	});
-				}
-        		return retval;
-			} 
-		}
-	});
-
-	$('input#search').on('typeahead:selected', function (object, datum) {
-    		console.log(datum);
-		window.location.href = '/#boardgames/' + datum.id;
-	});
-
-});
-</script>
 <div id='content'></div>
