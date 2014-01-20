@@ -25,6 +25,9 @@ gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'rest-client'
+gem 'addressable', :require => 'addressable/uri'
+gem 'nokogiri'
 
 
 # To use ActiveModel has_secure_password
