@@ -1,4 +1,7 @@
 <h4><%= boardgame.get('title') %>:
+<div style="width:100px;height:100px" >
+   <img src="<%= boardgame.get('img_src') %>" width="auto" height="100px">
+</div>
 Avg Rating:<div id='avg-rating'></div> <%= boardgame.get('rating') %>
 </h4>
 User Rating:<div id='star'></div>
