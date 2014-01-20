@@ -17,7 +17,7 @@ search = Addressable::URI.new(
 		}).to_s
 
 
-id = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid').first.value
+id = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid').last.value
 
 id_search = Addressable::URI.new(
 	:scheme => "http",
@@ -31,15 +31,24 @@ id_search = Addressable::URI.new(
 # puts test
 
 result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame')
-# test below will successfully return the info as strings
-# test = %w(yearpublished age).map do |node|
-# 	result.at(node).text
-# end
 
-test = result.search("name").each do |node|
+# test below will successfully return the info as strings
+attrs = {}
+test = %w(yearpublished playingtime minplayers maxplayers description image boardgamepublisher).each do |node|
+	attrs[node] = result.at(node).text
+end
+
+result.search("name").each do |node|
 	if node['primary']
-		p node.text
+		test << node.text
+		break
 	end
 end
+
+
+
+# test << title
+
+p attrs
 
 
