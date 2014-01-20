@@ -28,6 +28,7 @@ gem 'binding_of_caller'
 gem 'rest-client'
 gem 'addressable', :require => 'addressable/uri'
 gem 'nokogiri'
+gem 'htmlentities'
 
 
 # To use ActiveModel has_secure_password

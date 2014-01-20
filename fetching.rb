@@ -3,6 +3,7 @@ require 'addressable/uri'
 require 'open-uri'
 require 'nokogiri'
 
+
 puts "test name"
 name = gets.chomp
 
@@ -16,7 +17,17 @@ search = Addressable::URI.new(
 		}).to_s
 
 
-result = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid').first.value
+id = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid').first.value
 
-puts result
+id_search = Addressable::URI.new(
+	:scheme => "http",
+	:host => "boardgamegeek.com",
+	:path => "/xmlapi/boardgame/#{id}").to_s
+
+p id
+p id_search
+result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame/description').text
+
+test = HTMLEntities.new.decode(result)
+puts test
 

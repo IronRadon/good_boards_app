@@ -4,6 +4,8 @@
    <img src="<%= boardgame.get('img_src') %>" width="auto" height="300px">
 </div>
 Rating: <div id="star"></div><%= boardgame.get('rating') %>
+<br>
+<%= boardgame.get('description') %>
 
 <a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Review this Game</a>
 <h1>Reviews</h1>
