@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120213933) do
+ActiveRecord::Schema.define(:version => 20140120214216) do
 
   create_table "boardgames", :force => true do |t|
     t.string   "title",                               :null => false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20140120213933) do
     t.string   "website"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.string   "img_src"
+    t.string   "image"
     t.integer  "yearpublished"
     t.integer  "playingtime"
     t.integer  "minplayers"

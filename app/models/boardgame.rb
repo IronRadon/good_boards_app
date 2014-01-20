@@ -1,5 +1,6 @@
 class Boardgame < ActiveRecord::Base
-  attr_accessible :title, :description, :rating, :website, :total_rating
+  attr_accessible :title, :description, :rating, :website, :image, :boardgamepublisher,
+                  :yearpublished, :playingtime, :minplayers, :maxplayers
   validates :title, :description, :rating, :presence => true
   validates :title, :uniqueness => true
 

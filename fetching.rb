@@ -4,8 +4,10 @@ require 'open-uri'
 require 'nokogiri'
 
 
-puts "test name"
-name = gets.chomp
+# puts "test name"
+# name = gets.chomp
+
+def getinfo(name)
 
 search = Addressable::URI.new(
 	:scheme => "http",
@@ -40,15 +42,16 @@ end
 
 result.search("name").each do |node|
 	if node['primary']
-		test << node.text
+		attrs["title"] = node.text
 		break
 	end
 end
 
-
+return attrs
+end
 
 # test << title
 
-p attrs
+# p attrs
 
 
