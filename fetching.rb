@@ -24,10 +24,22 @@ id_search = Addressable::URI.new(
 	:host => "boardgamegeek.com",
 	:path => "/xmlapi/boardgame/#{id}").to_s
 
-p id
-p id_search
-result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame/description').text
+# result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame/description').text
 
-test = HTMLEntities.new.decode(result)
-puts test
+#  test = HTMLEntities.new.decode(result) #this is what needs to go into the field value
+#  	#some extra for description?
+# puts test
+
+result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame')
+# test below will successfully return the info as strings
+# test = %w(yearpublished age).map do |node|
+# 	result.at(node).text
+# end
+
+test = result.search("name").each do |node|
+	if node['primary']
+		p node.text
+	end
+end
+
 
