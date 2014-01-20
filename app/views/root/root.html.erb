@@ -14,7 +14,7 @@
 <script>
 $(document).ready(function(){
   GoodBoardsApp.initialize();
-	$('input#test').typeahead({
+	$('input#search').typeahead({
     	name: 'boardgames',
 		valueKey: 'title',
 		prefetch: {
@@ -33,12 +33,11 @@ $(document).ready(function(){
 		}
 	});
 
-	$('input#test').on('typeahead:selected', function (object, datum) {
+	$('input#search').on('typeahead:selected', function (object, datum) {
     		console.log(datum);
 		window.location.href = '/#boardgames/' + datum.id;
 	});
 
 });
 </script>
-Search: <input type= "text" id="test">
 <div id='content'></div>
