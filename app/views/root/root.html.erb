@@ -12,30 +12,33 @@
 
 
 <script>
-	$(document).ready(function(){
-	  GoodBoardsApp.initialize(
-	  
-	  	);
-	//   $(".wrapper").dotdotdot({
-	//   	ellipsis: "... ",
-	//   	height: 2,
-	//   	watch: true,
-	//   	wrap: 'letter',
-	//   	after: "a.readmore"
-	//   })
-
-
-
+$(document).ready(function(){
+  GoodBoardsApp.initialize();
 	$('input#test').typeahead({
-    		name: 'boardgames',
-	        	prefetch: 'http://localhost:3000/api/boardgames.json',
-	        	ttl: 1
-		        
- 		 })
+    	name: 'boardgames',
+		valueKey: 'title',
+		prefetch: {
+			url: '/api/boardgames.json',
+		    ttl: 1,
+			filter: function(data) {
+				retval = [];
+				for (var i = 0;  i < data.length;  i++) {
+			        	retval.push({
+			                	id: data[i].id,
+				                title: data[i].title
+				        	});
+				}
+        		return retval;
+			} 
+		}
 	});
 
-	
+	$('input#test').on('typeahead:selected', function (object, datum) {
+    		console.log(datum);
+		window.location.href = '/#boardgames/' + datum.id;
+	});
 
+});
 </script>
 Search: <input type= "text" id="test">
 <div id='content'></div>

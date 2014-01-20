@@ -17,10 +17,8 @@ class Api::BoardgamesController< ApplicationController
 		@boardgames = Boardgame.all
 
 		@boardgames = @boardgames.map do |boardgame|
-			boardgame.title
+			{:id => boardgame.id, :title => boardgame.title}
 		end
-
-
 
 		render :json => @boardgames
 	end
