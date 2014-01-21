@@ -34,14 +34,20 @@ class Api::BoardgamesController< ApplicationController
 	def index
 		@boardgames = Boardgame.all
 
-		@boardgames = @boardgames.map do |boardgame|
-			{:id => boardgame.id, :title => boardgame.title}
-		end
-
 		render :json => @boardgames
 	end
 
 	def create
 		@boardgame = Boardgame.new
+	end
+
+	def prefetch
+		@boardgames = Boardgame.all
+
+		@boardgames = @boardgames.map do |boardgame|
+			{:id => boardgame.id, :title => boardgame.title}
+		end
+
+		render :json => @boardgames
 	end
 end

@@ -35,6 +35,6 @@ class Api::ReviewsController < ApplicationController
 		@review.update_attributes(params[:review])
 		@boardgame = Boardgame.find(@review.boardgame.id)
 		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))
-		render :json => @review
+		render :json => @review.to_json(:include => [:boardgame])
 	end
 end

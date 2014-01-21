@@ -1,0 +1,8 @@
+<h1> Welcome to GoodBoards</h1>
+<ul>
+	<%= console.log(boardgames) %>
+	<% boardgames.each(function(boardgame) { %>
+		<li><%= boardgame.get('title') %></li>
+	<%	}) %>
+	
+</ul>

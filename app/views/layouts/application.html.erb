@@ -8,11 +8,13 @@
     <script>
   $(document).ready(function(){
     GoodBoardsApp.initialize();
+    // var GoodBoardsApp.boardgames = new GoodBoardsApp.Collections.BoardgamesRoot();
+    // GoodBoardsApp.boardgames.fetch();
     $('input#search').typeahead({
         name: 'boardgames',
       valueKey: 'title',
       prefetch: {
-        url: '/api/boardgames.json',
+        url: '/api/boardgames/prefetch.json',
           ttl: 1,
         filter: function(data) {
           retval = [];
@@ -32,12 +34,12 @@
       window.location.href = '/#boardgames/' + datum.id;
     });
 
-  $("input#search").on("keypress", function(event) {
-    if(event.which == 13) {
-    event.preventDefault();
-        window.location.href= '/#boardgames/' + ($("input#search").val());
-    }
-  });
+    $("input#search").on("keypress", function(event) {
+      if(event.which == 13) {
+      event.preventDefault();
+          window.location.href= '/#boardgames/' + ($("input#search").val());
+      }
+    });
 
 
   });

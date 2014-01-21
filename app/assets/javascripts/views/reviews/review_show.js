@@ -31,12 +31,41 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 		this.$('#star').raty({
     				readOnly: user_match(),
     				score: this.review.get('rating'),
-    				path: '/assets'
+    				path: '/assets',
+    				click: function(score, event) {
+						event.preventDefault();
+						var YN = confirm("YOU DONE CLICKED, SON");
+						console.log(score)
+
+						if (YN === true) {
+							that.review.set({
+								// id: that.review.get('id'),
+								rating: score
+							});
+							console.log("i'm saving")
+							that.review.save({}, {
+								success: function() {
+									console.log("i saved");
+									// this should trigger a change event
+									// that.review.get('boardgame').set({
+									// 	rating:score
+									// }, {
+									// 	success: function() {
+									// 		alert('boardgame is set')
+									// 	}
+									// });
+									console.log(that.review.get('boardgame'))
+								}
+							});
+						}
+					}	
   				});
 
 		var embeddedview = new GoodBoardsApp.Views.BoardgameEmbedShow({
-			model: this.review.get('boardgame')
+			model: this.review.get('boardgame'),
+			parent: this.review
 		});
+
 		this.$('#boardgame-info').html(embeddedview.render().$el);
 		 //  this.$(".wrapper-test").dotdotdot({
 	  // 	ellipsis: "... ",
