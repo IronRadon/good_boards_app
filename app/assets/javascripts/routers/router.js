@@ -21,6 +21,10 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 					collection: reviews
 				});
 				that._swapView(view);
+			},
+			error: function(){
+				var view = new GoodBoardsApp.Views.NotFound();
+				that._swapView(view)
 			}
 		})
 	},
@@ -64,6 +68,12 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 			}
 		})
 	},
+
+	// notFoundShow: function(){
+	// 	var view = new GoodBoardsApp.Views.NotFound();
+	// 	alert("this fired")
+	// 	this._swapView(view)
+	// },
 
 	_swapView: function(view) {
 		this._currentView && this._currentView.remove();

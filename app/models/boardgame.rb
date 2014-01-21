@@ -31,28 +31,34 @@ class Boardgame < ActiveRecord::Base
       :exact => 1
       }).to_s
 
-  id = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid').last.value
+  id = Nokogiri::XML(open(search)).xpath('/boardgames/boardgame/@objectid')
 
-  id_search = Addressable::URI.new(
-    :scheme => "http",
-    :host => "boardgamegeek.com",
-    :path => "/xmlapi/boardgame/#{id}").to_s
+  if id.last
+    id = id.last.value
 
-  result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame')
+    id_search = Addressable::URI.new(
+      :scheme => "http",
+      :host => "boardgamegeek.com",
+      :path => "/xmlapi/boardgame/#{id}").to_s  
 
-  attrs = {}
-  test = %w(yearpublished playingtime minplayers maxplayers description image boardgamepublisher).each do |node|
-    attrs[node] = result.at(node).text
-  end
+    result = Nokogiri::XML(open(id_search)).xpath('/boardgames/boardgame')
 
-  result.search("name").each do |node|
-    if node['primary']
-      attrs["title"] = node.text
-      break
+    attrs = {}
+    test = %w(yearpublished playingtime minplayers maxplayers description image boardgamepublisher).each do |node|
+      attrs[node] = result.at(node).text
     end
-  end
 
-  return attrs
+    result.search("name").each do |node|
+      if node['primary']
+        attrs["title"] = node.text
+        break
+      end
+    end
+
+    return attrs
+  else
+    return nil
+  end
 end
 
 
