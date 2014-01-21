@@ -35,6 +35,7 @@ class Boardgame < ActiveRecord::Base
 
   if id.last
     id = id.last.value
+    p id
 
     id_search = Addressable::URI.new(
       :scheme => "http",
@@ -45,7 +46,8 @@ class Boardgame < ActiveRecord::Base
 
     attrs = {}
     test = %w(yearpublished playingtime minplayers maxplayers description image boardgamepublisher).each do |node|
-      attrs[node] = result.at(node).text
+        next unless result.at(node)
+        attrs[node] = result.at(node).text
     end
 
     result.search("name").each do |node|
