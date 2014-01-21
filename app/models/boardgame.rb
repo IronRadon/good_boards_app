@@ -1,3 +1,4 @@
+require 'open-uri'
 class Boardgame < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged

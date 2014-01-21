@@ -12,7 +12,8 @@ class Api::BoardgamesController< ApplicationController
 			if @boardgame
 				render :json => @boardgame.to_json(:include => :reviews)
 			else
-				render :json => params[:id].slugify
+				info = Boardgame::get_info(params[:id])
+				render :json => info
 			end
 		end
 	end
