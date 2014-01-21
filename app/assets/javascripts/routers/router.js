@@ -22,10 +22,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 				});
 				that._swapView(view);
 			},
-			error: function(){
-				var view = new GoodBoardsApp.Views.NotFound();
-				that._swapView(view)
-			}
+			error: this.notFoundShow.bind(this)
 		})
 	},
 
@@ -39,7 +36,8 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 					// collection: user.get('reviews')
 				});
 				that._swapView(view);
-			}
+			},
+			error: this.notFoundShow.bind(this)
 		});	
 	},
 
@@ -52,7 +50,8 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 					model: review,
 				});
 				that._swapView(view); 
-			}
+			},
+			error: this.notFoundShow.bind(this)
 		});
 	},
 
@@ -69,11 +68,10 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		})
 	},
 
-	// notFoundShow: function(){
-	// 	var view = new GoodBoardsApp.Views.NotFound();
-	// 	alert("this fired")
-	// 	this._swapView(view)
-	// },
+	notFoundShow: function(){
+		var view = new GoodBoardsApp.Views.NotFound();
+		this._swapView(view)
+	},
 
 	_swapView: function(view) {
 		this._currentView && this._currentView.remove();
