@@ -1,15 +1,8 @@
-<h4>Reviewed By:
-	<%= user.get('username') %>:
-	<div id='star'></div>
-</h4>
-<h6>Reviewed on:<%= review.get('created_at')%></h6>
-
- 
-<h5><%= review.get('title') %></h5>
-	<%= review.get('rating') %>
-
-
-		<div class="wrapper">
-		<%= review.get('body').substr(0, maxLength)%>...
-			<a href="#reviews/<%=review.get('id')%>">Read More</a>
-		</div>
+<blockquote>
+  <div>
+  	<span id='star'></span>
+  	<span><%= review.get('title') %><span>
+  </div>
+  <p><%= review.get('body').substr(0, maxLength)%> <a href="#reviews/<%=review.get('id')%>">Read More</a></p>
+  <small><%= user.get('username') %></small>
+</blockquote>

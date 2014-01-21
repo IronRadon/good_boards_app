@@ -16,6 +16,7 @@
 //= require jquery.raty
 //= require jquery.dotdotdot
 //= require typeahead
+//= require moment
 //= require bootstrap
 //= require underscore
 //= require backbone
