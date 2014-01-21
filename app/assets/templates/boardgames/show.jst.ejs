@@ -2,14 +2,20 @@
 <div style="width:300px;height:300px" >
    <img src="<%= boardgame.get('image') %>" width="auto" height="300px">
 </div>
-Rating: <div id="star"></div><%= boardgame.get('rating') %>
+ <div id="star"></div>Current Rating:<%= boardgame.get('rating') %>
 <br>
+<h2>Description</h2>
 <%= boardgame.get('description') %>
 
-<a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Review this Game</a>
-<h1>Reviews</h1>
-<ul>
-	<%reviews.each(function(review) { %>
-		<li class="embedded" id="<%=review.get('id')%>"></li>
-	<% }) %>
-</ul>
+<% if (reviews.length > 0) { %>
+	<a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Review this Game</a>
+	<h1>Reviews</h1>	
+	<ul>
+		<%reviews.each(function(review) { %>
+			<li class="embedded" id="<%=review.get('id')%>"></li>
+		<% }) %>
+	</ul>
+
+<% }else{ %>
+	<a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Be the first to review this Game</a>
+	<% } %>

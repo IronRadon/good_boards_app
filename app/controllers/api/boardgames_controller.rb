@@ -15,6 +15,7 @@ class Api::BoardgamesController< ApplicationController
 				info = Boardgame::get_info(params[:id])
 				if info
 					render :json => info
+					Boardgame.create(info)
 				else
 					render :json => info, :status => 404
 				end
@@ -38,5 +39,9 @@ class Api::BoardgamesController< ApplicationController
 		end
 
 		render :json => @boardgames
+	end
+
+	def create
+		@boardgame = Boardgame.new
 	end
 end
