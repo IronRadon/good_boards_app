@@ -1,5 +1,8 @@
 Embedded Board testing
 <h3><%= boardgame.get('title') %></h3>
-User Rating: <div id="star"></div>
+<div style="width:200px;height:200px" >
+   <img src="<%= boardgame.get('image') %>" width="auto" height="200px">
+</div>
+Avg Rating: <div id="star"></div>
 <p>Rating: <%= boardgame.get('rating')%></p>
 Description: <%= boardgame.get('description') %>
