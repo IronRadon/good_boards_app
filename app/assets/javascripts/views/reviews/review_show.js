@@ -36,7 +36,7 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 						event.preventDefault();
 						var YN = confirm("YOU DONE CLICKED, SON");
 						console.log(score)
-
+                        
 						if (YN === true) {
 							that.review.set({
 								// id: that.review.get('id'),
@@ -44,7 +44,7 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 							});
 							console.log("i'm saving")
 							that.review.save({}, {
-								success: function() {
+								success: function(review) {
 									console.log("i saved");
 									// this should trigger a change event
 									// that.review.get('boardgame').set({
@@ -54,7 +54,9 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 									// 		alert('boardgame is set')
 									// 	}
 									// });
-									console.log(that.review.get('boardgame'))
+									console.log(that.review);
+									console.log(review)
+									// console.log(that.review.get('boardgame'))
 								}
 							});
 						}

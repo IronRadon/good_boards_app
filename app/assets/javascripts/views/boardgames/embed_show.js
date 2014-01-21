@@ -9,7 +9,6 @@ GoodBoardsApp.Views.BoardgameEmbedShow = Backbone.View.extend({
 	template: JST["boardgames/embedded_show"],
 
 	render: function() {
-		debugger
 		console.log(this.parent.get('boardgame'))
 		var renderedContent = this.template({
 			boardgame: this.parent.get('boardgame')

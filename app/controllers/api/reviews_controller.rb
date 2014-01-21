@@ -35,6 +35,7 @@ class Api::ReviewsController < ApplicationController
 		@review.update_attributes(params[:review])
 		@boardgame = Boardgame.find(@review.boardgame.id)
 		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))
-		render :json => @review.to_json(:include => [:boardgame])
+		#wtf?? When it is @review, it doesn't work.
+		render :json => Review.find(params[:id]).to_json(:include => [:boardgame])
 	end
 end
