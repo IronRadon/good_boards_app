@@ -6,8 +6,11 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
 	},
 
 	render: function() {
+		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html()).current_user_id;
 		var renderedContent = this.template({
-			boardgame: this.model
+			boardgame: this.model,
+			current_user_id: current_user_id
+
 		});
 
 		 console.log(this.$('#star'))

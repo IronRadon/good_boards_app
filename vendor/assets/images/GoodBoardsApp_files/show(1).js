@@ -1,4 +1,0 @@
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["reviews/show"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div id="boardgame-info"></div>\n\n\n<h2>',  review.get('title'),'</h2>\n<h4>Reviewed by: ',  user.get('username') ,'  Rating: <div id="star"></div>\nCheck Rating:',  review.get('rating') ,'</h4>\n<div class="wrapper-test">\n\t',  review.get('body') ,'\n</div>\n\n<h3>Add a Comment</h3>\n<form>\n\t<input type="text" id= "comment-body" name="comment[body]">\n\t<input type="submit" value="Add Comment">\n</form>\n\n<h3>Comments</h3>\n\t<ul>\n\t\t');  review.get('comments').each( function(comment) { ; __p.push('\n\t\t\t<li>',  comment.get('body') ,'</li>\n\t\t');  }) ; __p.push('\n\t</ul>\n');}return __p.join('');};
-}).call(this);

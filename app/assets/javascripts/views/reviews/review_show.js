@@ -79,7 +79,6 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 		var view = this;
 		comment.save({}, {
 			success: function () {
-				debugger
 				view.review.get("comments").add(comment);
 			}
 		});

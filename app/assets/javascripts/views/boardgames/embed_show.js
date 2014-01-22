@@ -8,8 +8,8 @@ GoodBoardsApp.Views.BoardgameEmbedShow = Backbone.View.extend({
 
 	template: JST["boardgames/embedded_show"],
 
-	render: function() 
-{		var renderedContent = this.template({
+	render: function() {		
+		var renderedContent = this.template({
 			boardgame: this.parent.get('boardgame')
 			// maxLength: 500
 		});
@@ -18,7 +18,7 @@ GoodBoardsApp.Views.BoardgameEmbedShow = Backbone.View.extend({
 
 		this.$('#star').raty({
     				readOnly: true,
-    				score: this.model.get('rating'),
+    				score: this.parent.get('boardgame').get('rating'), //this.model.get('rating')
     				path: '/assets'
   				});
 		return this;
