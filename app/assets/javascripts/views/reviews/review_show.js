@@ -46,17 +46,6 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 							that.review.save({}, {
 								success: function(review) {
 									console.log("i saved");
-									// this should trigger a change event
-									// that.review.get('boardgame').set({
-									// 	rating:score
-									// }, {
-									// 	success: function() {
-									// 		alert('boardgame is set')
-									// 	}
-									// });
-									console.log(that.review);
-									console.log(review)
-									// console.log(that.review.get('boardgame'))
 								}
 							});
 						}

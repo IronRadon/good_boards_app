@@ -33,6 +33,7 @@
 
     <!-- the comments -->
 	<% review.get('comments').each( function(comment) { %>
+		<%= console.log(comment.get('user')) %>
 		<script>
 			var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
 			$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);

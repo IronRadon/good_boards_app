@@ -15,7 +15,7 @@ GoodBoardsApp::Application.routes.draw do
       resources :comments, :only => [:index]
     end
 
-    resources :comments, :only=> [:create]
+    resources :comments, :only=> [:create, :show]
   end
   resource :users, :only => [:new, :create]
   resource :session, :only => [:create, :destroy, :new]
