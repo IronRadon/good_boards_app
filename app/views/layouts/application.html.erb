@@ -8,8 +8,10 @@
     <script>
   $(document).ready(function(){
     GoodBoardsApp.initialize();
-    // var GoodBoardsApp.boardgames = new GoodBoardsApp.Collections.BoardgamesRoot();
-    // GoodBoardsApp.boardgames.fetch();
+
+    var navbar = new GoodBoardsApp.Views.NavBar();
+    $("#navbar").html(navbar.render().$el);
+
     $('input#search').typeahead({
         name: 'boardgames',
       valueKey: 'title',
@@ -45,104 +47,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">Good Boards</a>
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                  <% if logged_in? %>
-                    <li><a href="/#users/<%= current_user.id %>"><%= current_user.username %></a></li>
-                    <li><%= link_to("Sign Out", session_url, :method => :delete) %><li>
-                  <% else %>
-                    <li><a href="#signInModal" role="button" class="btn" data-toggle="modal">Sign In</a></li>
-                    <li><a href="#signUpModal" role="button" class="btn" data-toggle="modal">Sign Up</a></li>
-                  <% end %>
-              </ul>
-              <form class="navbar-form navbar-right search-submit" role="search">
-                  <div class="form-group">
-                  <input type="text" class="typeahead" id="search" placeholder="Search" name="boardgame[title]">
-                  </div>
-              </form>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
-  </nav>
-
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title" id="myModalLabel">Please Sign In</h3>
-      </div>
-      <div class="modal-body">
-        <form action="<%= session_url %>" role="form" method="POST">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Username" type="text" id="username" name="user[username]" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" type="password" name="user[password]">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                            </label>
-                        </div>
-                        <!-- Change this to a button or input when using this as a form -->
-                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        <input class="btn btn-lg btn-success btn-block" type="input" value="Sign In">
-                    </fieldset>
-                </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title" id="myModalLabel">Signup for Free Account</h3>
-      </div>
-      <div class="modal-body">
-        <form action="<%= users_url %>" role="form" method="POST">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Username" type="text" id="username" name="user[username]" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" type="password" name="user[password]">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Email" type="email" name="user[email]">
-                        </div>
-                        <!-- Change this to a button or input when using this as a form -->
-                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign Up">
-                    </fieldset>
-                </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
+<div id="navbar"></div>
 <div class="container">
 <%= yield %>
 </div>
