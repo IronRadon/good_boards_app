@@ -1,3 +1,8 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Profile</a></li>
+  <li><a href="#">Messages</a></li>
+</ul>
 
 <h1>Reviews by <%= user.get('username') %></h1>
 <ul>
@@ -5,3 +10,12 @@
 		<li class="embedded" id="<%=review.get('id')%>"></li>
 	<% }) %>
 </ul>
+
+<h1>Comments by <%= user.get('username') %></h1>
+<ul>
+	<%comments.each(function(comment) { %>
+		<%= console.log(comment) %>
+		<li><%=comment.get('body')%></li>
+	<% }) %>
+</ul>
+

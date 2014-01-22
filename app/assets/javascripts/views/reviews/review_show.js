@@ -71,11 +71,10 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 
 	submit: function(event) {
 		event.preventDefault();
-		var attrs = $(event.currentTarget).serializeJSON();
-		attrs.comment.review_id = this.review.get('id');
-		$('#comment-body').val("")
+		var attrs = $(event.currentTarget).serializeJSON().comment;
+		attrs.review_id = this.review.get('id');
+		$('#comment-body').val("");
 		comment = new GoodBoardsApp.Models.Comment(attrs);
-		this.review.get('comments').create(comment);
-		console.log(comment.get('user'))
+		this.review.get('comments').create(comment, {wait: true});
 	}
 });

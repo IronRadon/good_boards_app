@@ -1,6 +1,8 @@
 <h4><%= boardgame.get('title') %>:
 <div style="width:100px;height:100px" >
-   <img src="<%= boardgame.get('img_src') %>" width="auto" height="100px">
+   <a href="#boardgames/<%= boardgame.get('id') %>">
+   <img src="<%= boardgame.get('image') %>" width="auto" height="100px">
+   </a>
 </div>
 Avg Rating:<div id='avg-rating'></div> <%= boardgame.get('rating') %>
 </h4>

@@ -12,9 +12,12 @@ class CommentsController < ApplicationController
 
 	end
 
-	# def index
-	# 	@comments = Comment.where(:review_id => params[:review_id])
-
-	# 	render :json => @comments.to_json(:include => :user)
-	# end
+	def index
+		if params[:user_id]
+			@user = User.find(params[:user_id])
+			@comments = @user.comments
+		else
+			@boardgame = Boardgame.find(params[:boardgame_id])
+			@comments = @boardgame.comments
+		end
 end

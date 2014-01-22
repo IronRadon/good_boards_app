@@ -8,11 +8,6 @@ GoodBoardsApp.Models.Boardgame = Backbone.Model.extend({
 		return data;
 	},
 
-	url: function(){
-		if (this.id) {
-			return 'api/boardgames/' + this.id
-		} else {
-			return 'api/boardgames'
-		}
-	}
+	urlRoot: 'api/boardgames'
+
 })

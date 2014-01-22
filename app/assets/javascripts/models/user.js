@@ -2,17 +2,15 @@ GoodBoardsApp.Models.User = Backbone.Model.extend({
 	
 	parse: function (data) {
 	  var reviews = data.reviews;
+	  var comments = data.comments;
 		data.reviews = new GoodBoardsApp.Collections.UserReviews(reviews, {
 			user_id: data.id
 		});
+		data.comments = new GoodBoardsApp.Collections.UserComments(comments, {
+			user_id: data.id
+		})
 		return data;
 	},
 
-	url: function(){
-		if (this.id){
-			return 'api/users/' + this.id;	
-		} else {
-			return 'api/users';
-		}	
-	}
+	urlRoot: 'api/users'
 })

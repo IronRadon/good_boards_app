@@ -4,7 +4,8 @@ GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 	render: function() {
 		var renderedContent = this.template({
 			user: this.model,
-			reviews: this.model.get('reviews')
+			reviews: this.model.get('reviews'),
+			comments: this.model.get('comments')
 			// maxLength: 500 
 		});
 
