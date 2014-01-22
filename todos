@@ -1,0 +1,11 @@
+1. Refactor to pull out associations from attributes in parse method.
+	OR to overwrite the to_json methods.
+	This requires that anywhere one calls Model.get('attribute')
+
+3. Implement sign-in redirect to last page. Not redirects
+
+4. Fix Review Show Page to update embedded boardgame view
+
+2. Pull down categories from bgg?
+
+

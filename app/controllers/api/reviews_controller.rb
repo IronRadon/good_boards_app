@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+	include ActionView::Helpers::TextHelper
 	before_filter :check_authorization, :only => [:create, :update]
 	def index
 		if params[:user_id]
@@ -20,7 +21,8 @@ class Api::ReviewsController < ApplicationController
 
 	def create
 		params[:review][:user_id] = current_user.id
-		p params
+		params[:review][:body] = simple_format(params[:review][:body])
+		p params[:review][:body]
 		@review = Review.new(params[:review])
 
 		if @review.save
