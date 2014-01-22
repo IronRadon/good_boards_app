@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 		@user = User.find_by_credentials(params[:user][:username], params[:user][:password])
 		if @user
 			login
-			redirect_to "#users/1"
+			head :ok
 		else
-			render :json => "Invalid username/password combination."
+			render :json => "Invalid username/password combination.", :status => 422
 		end
 	end
 

@@ -1,19 +1,26 @@
-<h4><%= boardgame.get('title') %>:
-<div style="width:100px;height:100px" >
-   <a href="#boardgames/<%= boardgame.get('id') %>">
-   <img src="<%= boardgame.get('image') %>" width="auto" height="100px">
-   </a>
-</div>
-Avg Rating:<div id='avg-rating'></div> <%= boardgame.get('rating') %>
-</h4>
-User Rating:<div id='star'></div>
+<div class="row">
+  <div class="col-md-2">
+	 <a href="#boardgames/<%= boardgame.get('id') %>">
+     <div><%= boardgame.get('title') %></div>
+	 <img src="<%= boardgame.get('image') %>" width="auto" height="100px">
+	 </a>
+	 <div id='avg-rating'></div> <%= boardgame.get('rating') %>
+  </div>
+  <div class="col-md-10">
+	<div>
+		<span id='star'></span> <span><%= review.get('title') %></span>
+	</div>
 
- 
-<h5><%= review.get('title') %></h5>
-	<%= review.get('rating') %>
+    <script>
+		var day_<%= review.get('id') %> = moment.utc("<%= review.get('created_at')%>").fromNow();
+		$('#reviewDate<%= review.get('id') %>').append(day_<%= review.get('id') %>);
+    </script>
 
-<h6>Reviewed on:<%= review.get('created_at')%></h6>
-		<div class="wrapper">
+	<div><span class="glyphicon glyphicon-time"></span> <span id='reviewDate<%= review.get('id') %>'></span><div>
+
+	<div class="wrapper">
 		<%= review.get('body').substr(0, maxLength)%>...
-			<a href="#/reviews/<%=review.get('id')%>">Read More</a>
-		</div>
+		<a href="#/reviews/<%=review.get('id')%>">Read More</a>
+	</div>
+  </div>
+</div>

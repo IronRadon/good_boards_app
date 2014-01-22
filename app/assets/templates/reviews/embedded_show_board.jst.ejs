@@ -3,6 +3,10 @@
   	<span id='star'></span>
   	<span><%= review.get('title') %><span>
   </div>
+  <script>
+	var day_<%= review.get('id') %> = moment.utc("<%= review.get('created_at')%>").fromNow();
+	$('#reviewDate<%= review.get('id') %>').append(day_<%= review.get('id') %>);
+  </script>
   <p><%= review.get('body').substr(0, maxLength)%> <a href="#reviews/<%=review.get('id')%>">Read More</a></p>
-  <small><%= user.get('username') %></small>
+  <small><a href="/#users/<%= user.get('id') %>"><%= user.get('username') %></a> <span id="reviewDate<%= review.get('id') %>"></span></small>	
 </blockquote>

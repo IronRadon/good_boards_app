@@ -22,6 +22,9 @@ GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
     				path: '/assets'
   				});
 
+		var signInView = new GoodBoardsApp.Views.SignIn();
+		this.$el.append(signInView.render().$el);
+
 		return this;
 	},
 

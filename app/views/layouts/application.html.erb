@@ -36,16 +36,11 @@
 
     $("input#search").on("keypress", function(event) {
       if(event.which == 13) {
-      event.preventDefault();
-          window.location.href= '/#boardgames/' + ($("input#search").val());
+        event.preventDefault();
+        window.location.href= '/#boardgames/' + ($("input#search").val());
       }
     });
-
-
   });
-
-
-
   </script>
 </head>
 
@@ -66,7 +61,7 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav navbar-right">
                   <% if logged_in? %>
-                    <li><a href=""><%= current_user.username %></a></li>
+                    <li><a href="/#users/<%= current_user.id %>"><%= current_user.username %></a></li>
                     <li><%= link_to("Sign Out", session_url, :method => :delete) %><li>
                   <% else %>
                     <li><a href="#signInModal" role="button" class="btn" data-toggle="modal">Sign In</a></li>
@@ -94,6 +89,7 @@
       <div class="modal-body">
         <form action="<%= session_url %>" role="form" method="POST">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
                     <fieldset>
                         <div class="form-group">
                             <input class="form-control" placeholder="Username" type="text" id="username" name="user[username]" autofocus>
@@ -108,7 +104,7 @@
                         </div>
                         <!-- Change this to a button or input when using this as a form -->
                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign In">
+                        <input class="btn btn-lg btn-success btn-block" type="input" value="Sign In">
                     </fieldset>
                 </form>
       </div>

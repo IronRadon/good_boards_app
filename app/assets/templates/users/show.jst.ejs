@@ -1,21 +1,22 @@
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
+  <li><a href="javascript:void()">Profile</a></li>
+  <li class="active"><a href="#reviews" data-toggle="tab">Reviews</a></li>
+  <li><a href="#comments" data-toggle="tab">Comments</a></li>
+  <li><a href="javascript:void()">Messages</a></li>
 </ul>
 
-<h1>Reviews by <%= user.get('username') %></h1>
-<ul>
-	<%reviews.each(function(review) { %>
-		<li class="embedded" id="<%=review.get('id')%>"></li>
-	<% }) %>
-</ul>
 
-<h1>Comments by <%= user.get('username') %></h1>
-<ul>
-	<%comments.each(function(comment) { %>
-		<%= console.log(comment) %>
-		<li><%=comment.get('body')%></li>
-	<% }) %>
-</ul>
+ <div class="tab-content" style="padding-top: 10px">
+   <div id="reviews" class="tab-pane active">
+		<%reviews.each(function(review) { %>
+			<div class="embedded" id="<%=review.get('id')%>"></div>
+			<hr>
+		<% }) %>
+   </div>
+   <div id="comments" class="tab-pane">
+		<%comments.each(function(comment) { %>
+			<li><%=comment.get('body')%></li>
+		<% }) %>
+   </div>
+</div>
 

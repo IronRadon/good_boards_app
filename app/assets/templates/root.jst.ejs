@@ -2,7 +2,9 @@
 <ul>
 	<%= console.log(boardgames) %>
 	<% boardgames.each(function(boardgame) { %>
-		<li><%= boardgame.get('title') %></li>
+		<li>
+		<a href="#boardgames/<%= boardgame.get('id') %>"><%= boardgame.get('title') %></a>
+		</li>
 	<%	}) %>
 	
 </ul>

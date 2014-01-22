@@ -3,51 +3,50 @@
 	$('#userWithDate').append(day)
 </script>
 
-<div class="col-lg-9">
-    <h1><%= review.get('title')%></h1>
-    <hr>
-    <p>
-        <span class="glyphicon glyphicon-time"></span> <span id="userWithDate">Reviewed by <%= user.get('username') %> </span></p>
-    <hr>
-    <div id="star"></div>
-    <hr>
-	<div class="wrapper-test">
-		<%= review.get('body') %>
-	</div>
-
-    <hr>
-
-    <!-- the comment box -->
-	<form role="form">
-		<div class="well">
-		  <div class="form-group">
-		      <textarea class="form-control" rows="3" id="comment-body" name="comment[body]" placeholder="Leave a comment..."></textarea>
-		  </div>
-		  <div class="form-group">
-			  <button type="submit" class="btn btn-primary">Post comment</button>
-		  </div>
-	    </div>
-	</form>
-
-    <hr>
-
-    <!-- the comments -->
-	<% review.get('comments').each( function(comment) { %>
-		Posted By: <%= comment.get('user').get('username') %>
-		<script>
-			var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
-			$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
-		</script>
-		<h3><small id="commentDate<%= comment.get('id') %>"></small></h3>
-		<p><%= comment.get('body') %></p>
-	<% }) %>
-</div>
-
 <div class="col-lg-3">
 	<div class="well">
-	    <div id="boardgame-info"></div>
-	</div>
+    	<div id="boardgame-info"></div>
+    </div>
 </div>
 
+<div class="col-lg-9">
+	    <h1><%= review.get('title')%></h1>
+	    <hr>
+	    <p>
+	        <span class="glyphicon glyphicon-time"></span> <span id="userWithDate">Reviewed by <a href="/#users/<%= user.get('id') %>"><%= user.get('username') %></a> </span></p>
+	    <hr>
+	    <div id="star"></div>
+	    <hr>
+		<div class="wrapper-test">
+			<%= review.get('body') %>
+		</div>
 
+	    <hr>
 
+	    <!-- the comment box -->
+		<form role="form">
+			<div class="well">
+			  <div class="form-group">
+			      <textarea class="form-control" rows="3" id="comment-body" name="comment[body]" placeholder="Leave a comment..."></textarea>
+			  </div>
+			  <div class="form-group">
+				  <button type="submit" class="btn btn-primary">Post comment</button>
+			  </div>
+		    </div>
+		</form>
+
+	    <hr>
+
+	    <!-- the comments -->
+		<% review.get('comments').each( function(comment) { %>
+			<script>
+				var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
+				$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
+			</script>
+			<blockquote>
+				<p><%= comment.get('body') %></p>	
+				<small><a href="/#users/<%= comment.get('user').get('id') %>"><%= comment.get('user').get('username') %></a> <span id="commentDate<%= comment.get('id') %>"></span></small>
+			</blockquote>
+		<% }) %>
+	</div>
+</div>
