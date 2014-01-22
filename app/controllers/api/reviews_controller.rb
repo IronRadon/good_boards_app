@@ -26,16 +26,15 @@ class Api::ReviewsController < ApplicationController
 		if @review.save
 			render :json => @review
 		else
-			render :json => @review.errors #or do I want full_messages?
+			render :json => @review.errors
 		end
 	end
 
 	def update
 		@review = Review.find(params[:id])
-		@review.update_attributes(params[:review])
-		@boardgame = Boardgame.find(@review.boardgame.id)
-		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))
-		#wtf?? When it is @review, it doesn't work.
-		render :json => Review.find(params[:id]).to_json(:include => [:boardgame])
+		@review.update_attributes!(params[:review])
+		@boardgame = @review.boardgame
+		@boardgame.update_attributes!(:rating => @boardgame.average_rating.round(2))
+		render :json => @review.to_json(:include => [:boardgame])
 	end
 end

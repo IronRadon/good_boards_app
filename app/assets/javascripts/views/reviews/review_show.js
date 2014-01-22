@@ -75,6 +75,14 @@ GoodBoardsApp.Views.ReviewShow = Backbone.View.extend({
 		attrs.review_id = this.review.get('id');
 		$('#comment-body').val("");
 		comment = new GoodBoardsApp.Models.Comment(attrs);
-		this.review.get('comments').create(comment, {wait: true});
+
+		var view = this;
+		comment.save({}, {
+			success: function () {
+				debugger
+				view.review.get("comments").add(comment);
+			}
+		});
+		// this.review.get('comments').create(comment, {wait: true});
 	}
 });

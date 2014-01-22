@@ -20,4 +20,5 @@ class CommentsController < ApplicationController
 			@boardgame = Boardgame.find(params[:boardgame_id])
 			@comments = @boardgame.comments
 		end
+	end
 end
