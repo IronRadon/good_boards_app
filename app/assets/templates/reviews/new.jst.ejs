@@ -16,18 +16,18 @@
 	  	<% if (current_user_id) {%>
 	  	  <button type="submit" class="btn btn-primary">Post Review</button>
 	  	<% }else {%>
-		  <button type = "button" id="#reviewsignInModal" role="button" class="btn btn-primary" data-toggle="modal">Post Review</a>
+		  <button type = "button" data-target="#signInModal" role="button" class="btn btn-primary" data-toggle="modal">Post Review</button>
 		 <% } %>
 	  </div>
   </div>
 </form>	
 
-<div class="modal fade" id="reviewsignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="reviewsignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title" id="myModalLabel">Please Sign In</h3>
+        <h3 class="modal-title" id="myModalLabel">THINGS</h3>
       </div>
       <div class="modal-body">
         <form >
@@ -42,16 +42,16 @@
                 <label>
                     <input name="remember" type="checkbox" value="Remember Me">Remember Me
                 </label>
-            </div>
+            </div> -->
             <!-- Change this to a button or input when using this as a form -->
             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-            <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign In">
+            <!-- <input class="btn btn-lg btn-success btn-block" type="submit" value="Sign In">
         </fieldset>
     </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      </div> -->
+    <!-- </div> --><!-- /.modal-content -->
+  <!-- </div> --><!-- /.modal-dialog -->
+<!-- </div> --><!-- /.modal -->
 
 
 
