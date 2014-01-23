@@ -13,11 +13,12 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 	},
 
 	signIn: function(event) {
+		var that = this;
 		event.preventDefault();
 		event.stopImmediatePropagation();
 		var attrs = $(event.currentTarget).serializeJSON();
 		console.log(attrs);
-
+		$('#signInModal').modal('hide');
 		$.ajax({
 			type: "POST",
 			url: "/session",
@@ -26,6 +27,7 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 				console.log("Signed In");
 				console.log(data);
 				GoodBoardsApp.user.set(data);
+				// $('#signInModal').modal('hide');
 				//some weird grey stuff here
 			},
 			error: function(){

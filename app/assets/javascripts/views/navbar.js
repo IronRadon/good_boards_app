@@ -10,13 +10,16 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 	template: JST["navbar"],
 
 	render: function(){
+		$('#signInModal').modal('hide');
+
 		var renderedContent = this.template({
 			current_user: GoodBoardsApp.user
 		});
 		this.$el.html(renderedContent);
 
 		var signInView = new GoodBoardsApp.Views.SignIn();
-		this.$el.append(signInView.render().$el);
+		this.$('#sign-in-modal').html(signInView.render().$el);
+		//appending also does not work
 
 		return this;
 	},
