@@ -6,6 +6,8 @@ GoodBoardsApp::Application.routes.draw do
 
     resources :boardgames, :only => [:index]
     get "boardgames/prefetch" => 'boardgames#prefetch'
+    get "boardgames/top" => 'boardgames#top'
+    get "boardgames/worst" => 'boardgames#worst'
     
     resources :boardgames, :only => [:show, :update] do
       resources :reviews, :only => [:index, :new]

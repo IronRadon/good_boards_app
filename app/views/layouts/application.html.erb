@@ -13,9 +13,20 @@
   {"current_user": <%= nil.to_json %>}
     <%user_id = nil %>
   <% end %>
-   
 </script>
     <script>
+    prefetch = new Array();
+
+    // $.get(
+    //   "api/boardgames/prefetch.json",
+    //   function(data) {
+    //     prefetch = data;
+    //     $('input#search').typeahead({
+    //       local: prefetch
+    //      });
+
+    //   }
+    //   )
   $(document).ready(function(){
     GoodBoardsApp.initialize();
     var current_user = JSON.parse($("#bootstrapped-current-user-id").html())
@@ -24,9 +35,14 @@
 
     GoodBoardsApp.navbar = new GoodBoardsApp.Views.NavBar();
     $("#navbar").html(GoodBoardsApp.navbar.render().$el);
+    
+    
+    // $('input#search').typeahead({
+    //   local: prefetch
+    // });
 
     $('input#search').typeahead({
-        name: 'boardgames',
+      // name: 'boardgames',
       valueKey: 'title',
       prefetch: {
         url: '/api/boardgames/prefetch.json',
@@ -52,6 +68,7 @@
       if(event.which == 13) {
         event.preventDefault();
         window.location.href= '/#boardgames/' + ($("input#search").val());
+
       }
     });
   });

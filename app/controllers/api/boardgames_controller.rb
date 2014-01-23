@@ -12,7 +12,7 @@ class Api::BoardgamesController< ApplicationController
 			if @boardgame
 				render :json => @boardgame.to_json(:include => :reviews)
 			else
-				info = Boardgame::get_info(params[:id])
+				info = Boardgame::get_info(params[:id].split(" ").join(" "))
 				if info
 					render :json => info
 					Boardgame.create(info)
@@ -45,8 +45,24 @@ class Api::BoardgamesController< ApplicationController
 		@boardgames = Boardgame.all
 
 		@boardgames = @boardgames.map do |boardgame|
-			{:id => boardgame.id, :title => boardgame.title}
-		end
+      	{:id => boardgame.id, :title => boardgame.title}
+    end
+  	# @boardgames = @boardgames.map do |boardgame|
+   #    	boardgame.title
+    # end
+  	
+
+   		render :json=>  @boardgames
+	end
+
+	def top
+		@boardgames = Boardgame.order('rating').reverse_order.limit(10)
+
+		render :json => @boardgames
+	end
+
+	def worst
+		@boardgames.Boardgame.order('rating').limit(10)
 
 		render :json => @boardgames
 	end

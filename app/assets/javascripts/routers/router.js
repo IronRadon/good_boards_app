@@ -5,10 +5,38 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 
 	routes: {
 		"": "rootShow",
+		"boardgames/top": "xthGames",
+		"boardgames/worst": "xthGames",
 		"boardgames/:boardgame_id": "boardShow", 
 		"boardgames/:boardgame_id/reviews/new": "newReview",
 		"users/:user_id": "userShow",
 		"reviews/:review_id": "reviewShow"
+	},
+
+	xthGames: function() {
+		var that = this;
+		console.log(Backbone.history.fragment)
+		if(Backbone.history.fragment === "boardgames/top"){
+			var boardgames = new GoodBoardsApp.Collections.BoardgamesTop();
+			boardgames.fetch({
+				success: function() {
+					var view = new GoodBoardsApp.Views.BoardgameBestWorst({
+						collection: boardgames
+					});
+					that._swapView(view)
+				}
+			})
+		}else{
+			var boardgames = new GoodBoardsApp.Collections.BoardgameWorst();
+			boardgames.fetch({
+				success: function() {
+					var view = new GoodBoardsApp.Views.BoardgameBestWorst({
+						collection: boardgames
+					});
+					that._swapView(view)
+				}
+			})
+		}
 	},
 
 	boardShow: function(boardgame_id) {

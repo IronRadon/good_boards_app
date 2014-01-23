@@ -20,6 +20,16 @@ class Boardgame < ActiveRecord::Base
     total_score/ self.reviews.count
   end
 
+  def self.prefetch
+    @boardgames = Boardgame.all
+
+    @boardgames = @boardgames.map do |boardgame|
+      boardgame.title
+    end
+
+    @boardgames
+  end
+
   def self.get_info(name)
 
   search = Addressable::URI.new(

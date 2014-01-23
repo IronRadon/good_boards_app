@@ -14,11 +14,11 @@
 }
 
 .typeahead {
-  background-color: #fff;
+  background-color: #F8F2DA;
 }
 
 .typeahead:focus {
-  border: 2px solid #0097cf;
+  border: 2px solid #9B59B6;
 }
 
 .tt-query {
@@ -28,14 +28,14 @@
 }
 
 .tt-hint {
-  color: #999
+  color: #7E329E
 }
 
 .tt-dropdown-menu {
   width: 250px;
   margin-top: 12px;
   padding: 8px 0;
-  background-color: #fff;
+  background-color: #F8F2DA;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 8px;
@@ -54,7 +54,7 @@
 
 .tt-suggestion.tt-is-under-cursor {
   color: #fff;
-  background-color: #0097cf;
+  background-color: #7E329E;
 
 }
 
