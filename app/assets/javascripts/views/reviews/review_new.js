@@ -1,4 +1,8 @@
 GoodBoardsApp.Views.ReviewNew = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(GoodBoardsApp.user, "change", this.render)
+	},
+	
 	template: JST["reviews/new"],
 
 	events: {

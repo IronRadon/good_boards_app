@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :username, :session_token, :uniqueness => true
   validates :password, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6}, :on => :create
-  before_validation :reset_session_token
+  before_validation :reset_session_token, :on => :create
 
   has_many(:reviews)
   has_many(:comments)

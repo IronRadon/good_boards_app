@@ -19,6 +19,8 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 		var attrs = $(event.currentTarget).serializeJSON();
 		console.log(attrs);
 		$('#signInModal').modal('hide');
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').remove();
 		$.ajax({
 			type: "POST",
 			url: "/session",
