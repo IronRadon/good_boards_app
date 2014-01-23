@@ -1,6 +1,6 @@
 GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 	initialize: function(options) {
-		// listenTo(???, ????, this.render)
+		this.listenTo(GoodBoardsApp.user, "all", this.render)
 	},
 
 	events: {		
@@ -27,6 +27,8 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 			url: "/session",
 			success: function(){
 				alert("GOOD TIMES")
+				GoodBoardsApp.user.clear();
+				console.log(GoodBoardsApp.user)
 			},
 			error: function(){
 				alert("BAD TIMES")
