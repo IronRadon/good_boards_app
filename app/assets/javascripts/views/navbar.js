@@ -21,6 +21,9 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 		this.$('#sign-in-modal').html(signInView.render().el);
 		//appending also does not work
 
+		var signUpView = new GoodBoardsApp.Views.SignUp();
+		this.$('#sign-up-modal').html(signUpView.render().el);
+
 		return this;
 	},
 
@@ -29,12 +32,9 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 			type: "DELETE",
 			url: "/session",
 			success: function(){
-				alert("GOOD TIMES")
 				GoodBoardsApp.user.clear();
-				console.log(GoodBoardsApp.user)
 			},
 			error: function(){
-				alert("BAD TIMES")
 			}
 		})		
 	}
