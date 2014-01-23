@@ -6,16 +6,21 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script type="application/json" id="bootstrapped-current-user-id">
-  <% if current_user %>     
+  <% if current_user %>
+     {"current_user": <%= current_user.to_json.html_safe %>} 
     <%user_id = current_user.id %>      
   <% else %>
+  {"current_user": <%= nil.to_json %>}
     <%user_id = nil %>
   <% end %>
-  {"current_user_id": <%= user_id.to_json.html_safe %>} 
+   
 </script>
     <script>
   $(document).ready(function(){
     GoodBoardsApp.initialize();
+    var current_user = JSON.parse($("#bootstrapped-current-user-id").html())
+    console.log(current_user.current_user)
+    GoodBoardsApp.user = new GoodBoardsApp.Models.User(current_user.current_user);
 
     GoodBoardsApp.navbar = new GoodBoardsApp.Views.NavBar();
     $("#navbar").html(GoodBoardsApp.navbar.render().$el);

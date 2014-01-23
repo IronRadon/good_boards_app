@@ -1,5 +1,5 @@
 GoodBoardsApp.Views.NavBar = Backbone.View.extend({
-	initialize: function() {
+	initialize: function(options) {
 		// listenTo(???, ????, this.render)
 	},
 
@@ -10,9 +10,8 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 	template: JST["navbar"],
 
 	render: function(){
-		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html()).current_user_id
 		var renderedContent = this.template({
-			current_user_id: current_user_id
+			current_user: GoodBoardsApp.user
 		});
 		this.$el.html(renderedContent);
 

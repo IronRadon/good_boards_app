@@ -13,8 +13,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav navbar-right">
-                  <% if (current_user_id) {%>
-                    <li><a href="/#users/<%= current_user_id %>">My Profile</a></li>
+                  <% if (current_user.id) {%>
+                    <li><a href="/#users/<%= current_user.id %>"><%= current_user.get('username') %></a></li>
                     <li><a href="#" id="sign-out">Sign Out</a></li>
                   <% }else{ %>
                     <li><a href="#signInModal" role="button" class="btn" data-toggle="modal">Sign In</a></li>
