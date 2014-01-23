@@ -22,8 +22,11 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 			type: "POST",
 			url: "/session",
 			data: attrs,
-			success: function(){
-				console.log("Signed In")
+			success: function(data){
+				console.log("Signed In");
+				console.log(data);
+				GoodBoardsApp.user.set(data);
+				//some weird grey stuff here
 			},
 			error: function(){
 				alert("BAD TIMES")
