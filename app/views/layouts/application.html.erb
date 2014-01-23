@@ -5,12 +5,20 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="application/json" id="bootstrapped-current-user-id">
+  <% if current_user %>     
+    <%user_id = current_user.id %>      
+  <% else %>
+    <%user_id = nil %>
+  <% end %>
+  {"current_user_id": <%= user_id.to_json.html_safe %>} 
+</script>
     <script>
   $(document).ready(function(){
     GoodBoardsApp.initialize();
 
-    var navbar = new GoodBoardsApp.Views.NavBar();
-    $("#navbar").html(navbar.render().$el);
+    GoodBoardsApp.navbar = new GoodBoardsApp.Views.NavBar();
+    $("#navbar").html(GoodBoardsApp.navbar.render().$el);
 
     $('input#search').typeahead({
         name: 'boardgames',

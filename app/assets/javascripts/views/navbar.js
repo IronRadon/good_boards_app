@@ -1,9 +1,13 @@
 GoodBoardsApp.Views.NavBar = Backbone.View.extend({
-	template: JST["navbar"],
-
-	events: {
-
+	initialize: function() {
+		// listenTo(???, ????, this.render)
 	},
+
+	events: {		
+		"click a#sign-out":"signOut"
+	},
+
+	template: JST["navbar"],
 
 	render: function(){
 		var current_user_id = JSON.parse($("#bootstrapped-current-user-id").html()).current_user_id
@@ -12,19 +16,16 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 		});
 		this.$el.html(renderedContent);
 
+		var signInView = new GoodBoardsApp.Views.SignIn();
+		this.$el.append(signInView.render().$el);
+
 		return this;
 	},
 
-	signIn: function(event) {
-		event.preventDefault();
-		event.stopImmediatePropagation();
-		var attrs = $(event.currentTarget).serializeJSON();
-		console.log(attrs);
-
+	signOut: function(){
 		$.ajax({
-			type: "POST",
+			type: "DELETE",
 			url: "/session",
-			data: attrs,
 			success: function(){
 				alert("GOOD TIMES")
 			},

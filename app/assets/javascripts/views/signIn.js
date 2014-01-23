@@ -9,9 +9,6 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
 
-		var signInView = new GoodBoardsApp.Views.SignIn();
-		this.$el.append(signInView.render().$el);
-
 		return this;
 	},
 
@@ -26,7 +23,7 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 			url: "/session",
 			data: attrs,
 			success: function(){
-				alert("GOOD TIMES")
+				console.log("Signed In")
 			},
 			error: function(){
 				alert("BAD TIMES")
