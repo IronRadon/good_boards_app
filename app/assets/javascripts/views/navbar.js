@@ -18,7 +18,7 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 		this.$el.html(renderedContent);
 
 		var signInView = new GoodBoardsApp.Views.SignIn();
-		this.$('#sign-in-modal').html(signInView.render().$el);
+		this.$('#sign-in-modal').html(signInView.render().el);
 		//appending also does not work
 
 		return this;

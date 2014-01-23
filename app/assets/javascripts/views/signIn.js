@@ -28,10 +28,15 @@ GoodBoardsApp.Views.SignIn = Backbone.View.extend({
 				console.log(data);
 				GoodBoardsApp.user.set(data);
 				// $('#signInModal').modal('hide');
-				//some weird grey stuff here
+				//some weird grey stuff heres
 			},
-			error: function(){
-				alert("BAD TIMES")
+			error: function(data){
+				$('.modal-backdrop').remove();
+				console.log($('#signin-modal-body'))
+				$('#signin-modal-body').html(data.responseText);
+				$('#signInModal').modal('toggle')
+				console.log(data.responseText)
+
 			}
 		})		
 	}

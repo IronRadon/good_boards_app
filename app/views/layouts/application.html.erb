@@ -30,7 +30,6 @@
       valueKey: 'title',
       prefetch: {
         url: '/api/boardgames/prefetch.json',
-          ttl: 1,
         filter: function(data) {
           retval = [];
           for (var i = 0;  i < data.length;  i++) {
@@ -61,9 +60,8 @@
 
 <body>
 
-
-
 <div class="container">
+
 <%= yield %>
 </div>
 </body>
