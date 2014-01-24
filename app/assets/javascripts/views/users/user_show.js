@@ -15,6 +15,12 @@ GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 
 		this.$el.html(renderedContent);
 
+		if (GoodBoardsApp.user.id != this.model.id) {
+			console.log(GoodBoardsApp.user.id)
+			console.log("you are an imposter!")
+			this.$('.user-info').attr('disabled', true)
+		}
+
 		this.model.get('reviews').each(function(review){
 			var that = this;
 			var boardgame_id = review.get('boardgame_id');

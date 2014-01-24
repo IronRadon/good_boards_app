@@ -1,3 +1,4 @@
+
 <div class="tab-v2">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
@@ -6,33 +7,34 @@
   </ul>
 </div>
 
-
  <div class="tab-content" style="padding-top: 10px">
    <div id="profile" class="tab-pane active">
     <div class="panel-body"> 
       <form class="form-horizontal"> 
-            <div class="form-group"> 
+            <div class="form-group" id="profile"> 
               <label class="col-lg-3 control-label">Username</label> 
               <div class="col-lg-6"> 
-                <input type="text" name="user[username]" value="<%= user.get('username')%>" placeholder="Username"  data-required="true" class="form-control parsley-validated"> 
+                <input type="text" name="user[username]" value="<%= user.get('username')%>" placeholder="Username"  data-required="true" class="form-control parsley-validated user-info"> 
               </div> 
             </div> 
             <div class="form-group"> 
               <label class="col-lg-3 control-label">Email</label> 
                 <div class="col-lg-6"> 
-                  <input type="text" name="user[email]" value="<%= user.get('email')%>" placeholder="test@example.com" class="bg-focus form-control parsley-validated" data-required="true" data-type="email"> 
+                  <input type="text" name="user[email]" value="<%= user.get('email')%>" placeholder="test@example.com" class="bg-focus form-control parsley-validated user-info" data-required="true" data-type="email"> 
                 </div> 
             </div> 
             <div class="form-group"> 
               <label class="col-lg-3 control-label">Currently Playing</label> 
               <div class="col-lg-6"> 
-                <input type="text" value="<%= user.get('currently_playing') %>" name="user[currently_playing]" placeholder="Currently Playing" class="bg-focus form-control"> 
+                <input type="text" value="<%= user.get('currently_playing') %>" name="user[currently_playing]" placeholder="Currently Playing" class="bg-focus form-control user-info"> 
                 <div class="line line-dashed m-t-large"></div> 
               </div> 
             </div> 
             <div class="form-group"> 
-              <div class="col-lg-9 col-lg-offset-3"> 
+              <div class="col-lg-9 col-lg-offset-3">
+                <%if (GoodBoardsApp.user.id === user.id ){ %>
                 <button type="submit" class="btn btn-primary">Save changes</button> 
+                <% } %>
               </div> 
             </div> 
       </form> 
@@ -47,6 +49,13 @@
     <%comments.each(function(comment) { %>
       <div class="tag-box tag-box-v2">
           <p><%=comment.get('body')%></p>
+          <script>
+            var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
+            $('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
+          </script>
+          <span id='commentDate<%= comment.get('id') %>'></span>
+          <p>--See <a href="#/reviews/<%=comment.get('review_id')%>">Review Source</a></p>
+          
       </div>
     <% }) %>
    </div>
