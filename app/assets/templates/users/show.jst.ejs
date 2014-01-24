@@ -1,8 +1,10 @@
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
-  <li><a href="#comments" data-toggle="tab">Comments</a></li>
-</ul>
+<div class="tab-v2">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
+    <li><a href="#comments" data-toggle="tab">Comments</a></li>
+  </ul>
+</div>
 
 
  <div class="tab-content" style="padding-top: 10px">
@@ -44,7 +46,9 @@
    </div>
    <div id="comments" class="tab-pane">
     <%comments.each(function(comment) { %>
-      <li><%=comment.get('body')%></li>
+      <div class="tag-box tag-box-v2">
+          <p><%=comment.get('body')%></p>
+      </div>
     <% }) %>
    </div>
 </div>

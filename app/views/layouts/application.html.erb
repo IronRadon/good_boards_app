@@ -5,7 +5,12 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://htmlstream.com/preview/unify/assets/plugins/font-awesome/css/font-awesome.css">
+  
   <script type="application/json" id="bootstrapped-current-user-id">
   <% if current_user %>
      {"current_user": <%= current_user.to_json.html_safe %>} 
@@ -26,7 +31,7 @@
     GoodBoardsApp.worst = new GoodBoardsApp.Collections.BoardgamesWorst();
     GoodBoardsApp.navbar = new GoodBoardsApp.Views.NavBar();
     GoodBoardsApp.top.fetch({
-      success: function(){
+      success: function() {
         GoodBoardsApp.worst.fetch({
           success: function(){
             $("#navbar").html(GoodBoardsApp.navbar.render().$el);
@@ -50,7 +55,7 @@
               });
             $('input#search').on('typeahead:selected', function (object, datum) {
              console.log(datum);
-             window.location.href = '/#boardgames/' + datum.id;
+              window.location.href = '/#boardgames/' + datum.id;
              });
 
             $("input#search").on("keypress", function(event) {
@@ -58,20 +63,11 @@
                 event.preventDefault();
                 window.location.href= '/#boardgames/' + ($("input#search").val());
             }
-        });
+       });
           }
         })
       }
     });
-    
-    
-    // $('input#search').typeahead({
-    //   local: prefetch
-    // });
-
-    
-
-    
   });
   </script>
 </head>
