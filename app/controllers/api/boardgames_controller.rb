@@ -62,7 +62,7 @@ class Api::BoardgamesController< ApplicationController
 	end
 
 	def worst
-		@boardgames.Boardgame.order('rating').limit(10)
+		@boardgames= Boardgame.order('rating').limit(10)
 
 		render :json => @boardgames
 	end

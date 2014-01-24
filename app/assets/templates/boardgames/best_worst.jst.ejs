@@ -1,1 +1,9 @@
-TESTING
+<% if(marker === "best") { %>
+<h1>TOP RATED GAMES</h1>	
+<% } else { %>
+<h1> SHITTY GAMES </h1>
+<% } %>
+
+<% boardgames.each(function(boardgame){ %>
+	<div class="embedded" id="<%=boardgame.get('id')%>"></div>
+<%	}) %>

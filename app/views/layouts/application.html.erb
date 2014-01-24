@@ -15,62 +15,62 @@
   <% end %>
 </script>
     <script>
-    prefetch = new Array();
-
-    // $.get(
-    //   "api/boardgames/prefetch.json",
-    //   function(data) {
-    //     prefetch = data;
-    //     $('input#search').typeahead({
-    //       local: prefetch
-    //      });
-
-    //   }
-    //   )
+  
   $(document).ready(function(){
     GoodBoardsApp.initialize();
     var current_user = JSON.parse($("#bootstrapped-current-user-id").html())
     console.log(current_user.current_user)
     GoodBoardsApp.user = new GoodBoardsApp.Models.User(current_user.current_user);
-
+    GoodBoardsApp.top = new GoodBoardsApp.Collections.BoardgamesTop();
+    GoodBoardsApp.worst = new GoodBoardsApp.Collections.BoardgamesWorst();
     GoodBoardsApp.navbar = new GoodBoardsApp.Views.NavBar();
-    $("#navbar").html(GoodBoardsApp.navbar.render().$el);
+    GoodBoardsApp.top.fetch({
+      success: function(){
+        GoodBoardsApp.worst.fetch({
+          success: function(){
+            $("#navbar").html(GoodBoardsApp.navbar.render().$el);
+            $('input#search').typeahead({
+                name: 'boardgames',
+                valueKey: 'title',
+                prefetch: {
+                  url: '/api/boardgames/prefetch.json',
+            
+                  filter: function(data) {
+                    retval = [];
+                    for (var i = 0;  i < data.length;  i++) {
+                            retval.push({
+                                    id: data[i].id,
+                                    title: data[i].title
+                              });
+                    }
+                      return retval;
+                  } 
+                }
+              });
+            $('input#search').on('typeahead:selected', function (object, datum) {
+             console.log(datum);
+             window.location.href = '/#boardgames/' + datum.id;
+             });
+
+            $("input#search").on("keypress", function(event) {
+              if(event.which == 13) {
+                event.preventDefault();
+                window.location.href= '/#boardgames/' + ($("input#search").val());
+            }
+        });
+          }
+        })
+      }
+    });
     
     
     // $('input#search').typeahead({
     //   local: prefetch
     // });
 
-    $('input#search').typeahead({
-      // name: 'boardgames',
-      valueKey: 'title',
-      prefetch: {
-        url: '/api/boardgames/prefetch.json',
-        filter: function(data) {
-          retval = [];
-          for (var i = 0;  i < data.length;  i++) {
-                  retval.push({
-                          id: data[i].id,
-                          title: data[i].title
-                    });
-          }
-              return retval;
-        } 
-      }
-    });
+    
 
-    $('input#search').on('typeahead:selected', function (object, datum) {
-          console.log(datum);
-      window.location.href = '/#boardgames/' + datum.id;
-    });
-
-    $("input#search").on("keypress", function(event) {
-      if(event.which == 13) {
-        event.preventDefault();
-        window.location.href= '/#boardgames/' + ($("input#search").val());
-
-      }
-    });
+    
   });
   </script>
 </head>

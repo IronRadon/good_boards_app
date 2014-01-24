@@ -94,6 +94,10 @@
     left: auto;
 }
 
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
+
 /* Sidebar Menu Styles */
 
  .sidebar-search {

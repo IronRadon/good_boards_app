@@ -29,7 +29,7 @@ GoodBoardsApp.Views.BoardgameShow = Backbone.View.extend({
 						review: review,
 						user: user
 					});
-					this.$('.embedded#'+id).html(view.render().$el);
+					that.$('.embedded#'+id).html(view.render().$el);
 				}
 			});
 			

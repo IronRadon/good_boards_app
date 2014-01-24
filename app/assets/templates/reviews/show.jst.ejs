@@ -39,6 +39,7 @@
 
 	    <!-- the comments -->
 		<% review.get('comments').each( function(comment) { %>
+		<div class="panel panel-default">
 			<script>
 				var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
 				$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
@@ -47,6 +48,7 @@
 				<p><%= comment.get('body') %></p>	
 				<small><a href="/#users/<%= comment.get('user').get('id') %>"><%= comment.get('user').get('username') %></a> <span id="commentDate<%= comment.get('id') %>"></span></small>
 			</blockquote>
+			</div>
 		<% }) %>
 	</div>
 </div>
