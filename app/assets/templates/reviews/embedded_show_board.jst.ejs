@@ -7,6 +7,7 @@
 	var day_<%= review.get('id') %> = moment.utc("<%= review.get('created_at')%>").fromNow();
 	$('#reviewDate<%= review.get('id') %>').append(day_<%= review.get('id') %>);
   </script>
-  <p><%= review.get('body').substr(0, maxLength)%> <a href="#reviews/<%=review.get('id')%>">Read More</a></p>
+  <p><%= review.get('body').substr(0, maxLength)%></p>
+  <a href="#/reviews/<%=review.get('id')%>" class="btn-u btn-u-red">read more</a>
   <small><a href="/#users/<%= user.get('id') %>"><%= user.get('username') %></a> <span id="reviewDate<%= review.get('id') %>"></span></small>	
 </blockquote>
