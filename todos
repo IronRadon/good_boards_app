@@ -10,11 +10,11 @@
 
 -------------------
 0. Guest Account
-1. Send grid for signing up and changing user profile.
+NOT WORTH 1. Send grid for signing up and changing user profile.
 1.5 Pagination
 1.63 Pingdom
 1.75 Latest Reviews
-1.850 Top Rated Boardgames
+DONE 1.850 Top Rated Boardgames
 2. Add liking buttons and shit?
 3. Fix modals
 
@@ -23,3 +23,4 @@ B: Javascript the Right Way
 A: Sign up for Jabberwocky.appacademy.IO
 B: picture on Github
 C: Update LinkedIn
+D: Breadcrumbs

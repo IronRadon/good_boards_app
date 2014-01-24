@@ -14,7 +14,8 @@ GoodBoardsApp.Views.BoardgameShow = Backbone.View.extend({
 		this.$('#star').raty({
     				readOnly: true,
     				score: this.model.get('rating'),
-    				path: '/assets'
+    				path: '/assets',
+    				size: 1000
   				});
 
 		var that = this;

@@ -46,6 +46,7 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
                 event.preventDefault();
                 window.location.href= '/#boardgames/' + ($("input#search").val());
             }
+			
         });
 
 		var signInView = new GoodBoardsApp.Views.SignIn();
