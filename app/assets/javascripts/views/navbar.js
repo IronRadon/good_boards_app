@@ -16,6 +16,7 @@ GoodBoardsApp.Views.NavBar = Backbone.View.extend({
 			current_user: GoodBoardsApp.user
 		});
 		this.$el.html(renderedContent);
+		window.localStorage.clear()
 
 		$('input#search').typeahead({
                 name: 'boardgames',

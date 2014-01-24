@@ -104,6 +104,7 @@ GoodBoardsApp.Routers.Router = Backbone.Router.extend({
 		// var view = new GoodBoardsApp.Views.Rootshow({
 		// 	collection: GoodBoardsApp.boardgames
 		// })
+		
 		var boardgames = new GoodBoardsApp.Collections.BoardgamesRoot();
 		boardgames.fetch({
 			success: function(){

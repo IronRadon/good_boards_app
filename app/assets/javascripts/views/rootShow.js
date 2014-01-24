@@ -5,7 +5,13 @@ GoodBoardsApp.Views.RootShow = Backbone.View.extend({
 		var renderedContent = this.template({
 			boardgames: this.collection
 		});
+
 		this.$el.html(renderedContent);
+
+	   
+
+		
+		
 		return this;
 	}
 })

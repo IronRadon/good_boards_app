@@ -1,6 +1,10 @@
 GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 	template: JST["users/show"],
 
+	events: {
+		"submit form": "submit"
+	},
+
 	render: function() {
 		var renderedContent = this.template({
 			user: this.model,
@@ -30,5 +34,19 @@ GoodBoardsApp.Views.UserShow = Backbone.View.extend({
 		})
 
 		return this;
+	},
+
+	submit: function(event) {
+		event.preventDefault();
+		var attrs = $(event.currentTarget).serializeJSON();
+		attrs.user.id = GoodBoardsApp.user.id;
+		var user = new GoodBoardsApp.Models.User(attrs.user);
+		console.log(attrs.user)
+
+		user.save({}, {
+			success: function() {
+				console.log('update user successful')
+			}
+		})
 	}
 })

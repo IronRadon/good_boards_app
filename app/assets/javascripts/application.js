@@ -20,6 +20,8 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require masonry.pkgd.min.js
+//= require imagesloaded.pkgd.min
 //= require good_boards_app
 //= require_tree ../templates
 //= require_tree ./models

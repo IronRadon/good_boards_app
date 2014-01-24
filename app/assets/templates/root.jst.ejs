@@ -1,10 +1,10 @@
 <h1> Welcome to GoodBoards</h1>
-<ul>
-	<%= console.log(boardgames) %>
-	<% boardgames.each(function(boardgame) { %>
-		<li>
-		<a href="#boardgames/<%= boardgame.get('id') %>"><%= boardgame.get('title') %></a>
-		</li>
-	<%	}) %>
-	
-</ul>
+	<section id="masonry">
+				<%= console.log(boardgames) %>
+				<% boardgames.each(function(boardgame) { %>
+				<img src="<%= boardgame.get('image') %>">
+			<%	}) %>
+	</section>
+
+
+

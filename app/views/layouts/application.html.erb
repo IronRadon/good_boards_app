@@ -19,6 +19,12 @@
   
   $(document).ready(function(){
     GoodBoardsApp.initialize();
+     $('#masonry').masonry({
+
+      itemSelector: '#masonry.img'
+       }).imagesLoaded(function() {
+      $('#masonry').masonry('reload');
+      });
     var current_user = JSON.parse($("#bootstrapped-current-user-id").html())
     console.log(current_user.current_user)
     GoodBoardsApp.user = new GoodBoardsApp.Models.User(current_user.current_user);
@@ -35,6 +41,7 @@
                 valueKey: 'title',
                 prefetch: {
                   url: '/api/boardgames/prefetch.json',
+                  ttl: 1,
             
                   filter: function(data) {
                     retval = [];
@@ -57,17 +64,16 @@
               if(event.which == 13) {
                 event.preventDefault();
                 window.location.href= '/#boardgames/' + ($("input#search").val());
-            }
-        });
+              }
+            });
           }
         })
       }
+
+
     });
     
     
-    // $('input#search').typeahead({
-    //   local: prefetch
-    // });
 
     
 

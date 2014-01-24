@@ -24,6 +24,7 @@ class Api::BoardgamesController< ApplicationController
 	end
 
 
+
 	def update
 		@boardgame = Boardgame.find(params[:id])
 		@boardgame.update_attributes(:rating => @boardgame.average_rating.round(2))

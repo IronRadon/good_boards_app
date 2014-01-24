@@ -19,4 +19,11 @@ class Api::UsersController < ApplicationController
 
 		render :json => @user.to_json(:include => [:reviews, :comments])
 	end
+
+	def update
+		@user = current_user
+		@user.update_attributes!(params[:user])
+
+		render :json => @user.to_json(:include => [:reviews, :comments])
+	end
 end
