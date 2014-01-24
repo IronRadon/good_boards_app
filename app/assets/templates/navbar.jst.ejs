@@ -1,55 +1,80 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand sister-font" style="font-size: 24pt" href="/">Good Boards</a>
-          </div>
+<!--=== Top ===-->    
+<div class="top">
+    <div class="container">         
+        <ul class="loginbar pull-right">
+            <% if (current_user.id) {%>
+              <li class="devider"></li>   
+              <li><a href="/#users/<%= current_user.id %>"><%= current_user.get('username') %></a></li>
+              <li class="devider"></li>   
+              <li><a href="#" id="sign-out">Sign Out</a></li>
+            <% }else{ %>
+              <li class="devider"></li>   
+              <li><a href="#signInModal" role="button" class="btn" data-toggle="modal">Sign In</a></li>
+              <li class="devider"></li>   
+              <li><a href="#signUpModal" role="button" class="btn" data-toggle="modal">Sign Up</a></li>
+            <% }%>
+        </ul>
+    </div>      
+</div><!--/top-->
+<!--=== End Top ===--> 
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-left">
+<!--=== Header ===-->    
+<div class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand sister-font" style="font-size: 24pt; padding-top:15px" href="/">
+                    Good Boards
+                </a>
+            </div>
 
-             <li class="dropdown">
-              <a href="#boardgames/top">Top Games <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-            <% GoodBoardsApp.top.each(function(boardgame){ %>
-              <li><a href="#/boardgames/<%=boardgame.id%>"><%= boardgame.get('title') %></a></li>
-              <% })%>
-            </ul>
-          </li> 
-
-        <li class="dropdown">
-            <a href="#/boardgames/worst">Shitty Games <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <% GoodBoardsApp.worst.each(function(boardgame){ %>
-              <li><a href="#/boardgames/<%=boardgame.id%>"><%= boardgame.get('title') %></a></li>
-              <% })%>
-          </ul>
-        </li>                            
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                  <% if (current_user.id) {%>
-                    <li><a href="/#users/<%= current_user.id %>"><%= current_user.get('username') %></a></li>
-                    <li><a href="#" id="sign-out">Sign Out</a></li>
-                  <% }else{ %>
-                    <li><a href="#signInModal" role="button" class="btn" data-toggle="modal">Sign In</a></li>
-                    <li><a href="#signUpModal" role="button" class="btn" data-toggle="modal">Sign Up</a></li>
-                  <% }%>
-              </ul>
-              <form class="navbar-form navbar-right search-submit" role="search">
-                  <div class="form-group">
-                  <input type="text" class="typeahead" id="search" placeholder="Search" name="boardgame[title]">
-                  </div>
-              </form>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-    
-</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <form class="navbar-form navbar-right search-submit" role="search">
+                            <div class="form-group">
+                            <input type="text" class="typeahead" id="search" placeholder="Search" name="boardgame[title]">
+                            </div>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/" class="dropdown-toggle">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="http://htmlstream.com/preview/unify/blog_medium.html#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            Top Games
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <% GoodBoardsApp.top.each(function(boardgame){ %>
+                          <li><a href="#/boardgames/<%=boardgame.id%>"><%= boardgame.get('title') %></a></li>
+                          <% })%>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="http://htmlstream.com/preview/unify/blog_medium.html#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                            Shitty Games
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <% GoodBoardsApp.worst.each(function(boardgame){ %>
+                            <li><a href="#/boardgames/<%=boardgame.id%>"><%= boardgame.get('title') %></a></li>
+                            <% })%>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /navbar-collapse -->
+        </div>    
+    </div>    
+</div><!--/header-->
+<!--=== End Header ===-->
 <div id="sign-in-modal"></div> 
 <div id="sign-up-modal"></div>

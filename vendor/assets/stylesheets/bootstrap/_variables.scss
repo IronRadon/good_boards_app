@@ -29,9 +29,9 @@ $brand-danger:          #d9534f !default;
 // ## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #C7AFBD !default;
+$body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            #484473 !default;
+$text-color:            $gray-dark !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -210,7 +210,7 @@ $input-group-addon-border-color: $input-border !default;
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-$dropdown-bg:                    #F8F2DA !default;
+$dropdown-bg:                    #fff !default;
 //** Dropdown menu `border-color`.
 $dropdown-border:                rgba(0,0,0,.15) !default;
 //** Dropdown menu `border-color` **for IE8**.
@@ -221,9 +221,9 @@ $dropdown-divider-bg:            #e5e5e5 !default;
 //** Dropdown link text color.
 $dropdown-link-color:            $gray-dark !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      #f8f2da !default;
+$dropdown-link-hover-color:      darken($gray-dark, 5%) !default;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         #7E329E !default;
+$dropdown-link-hover-bg:         #f5f5f5 !default;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $component-active-color !default;
@@ -317,7 +317,7 @@ $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 
 $navbar-default-color:             #777 !default;
-$navbar-default-bg:                #484452 !default;
+$navbar-default-bg:                #f8f8f8 !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
@@ -343,12 +343,12 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color:                      $gray-light !default;
-$navbar-inverse-bg:                         #484473 !default;
+$navbar-inverse-bg:                         #222 !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
 $navbar-inverse-link-color:                 $gray-light !default;
-$navbar-inverse-link-hover-color:           #f8f2da !default;
+$navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
 $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
@@ -644,7 +644,7 @@ $list-group-link-heading-color: #333 !default;
 //
 //##
 
-$panel-bg:                    #F8F2DA !default;
+$panel-bg:                    #fff !default;
 $panel-body-padding:          15px !default;
 $panel-border-radius:         $border-radius-base !default;
 

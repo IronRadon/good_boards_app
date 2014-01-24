@@ -4,9 +4,7 @@
 </script>
 
 <div class="col-lg-3">
-	<div class="well">
-    	<div id="boardgame-info"></div>
-    </div>
+	<div id="boardgame-info"></div>
 </div>
 
 <div class="col-lg-9">
@@ -39,16 +37,25 @@
 
 	    <!-- the comments -->
 		<% review.get('comments').each( function(comment) { %>
-		<div class="panel panel-default">
-			<script>
-				var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
-				$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
-			</script>
-			<blockquote>
-				<p><%= comment.get('body') %></p>	
-				<small><a href="/#users/<%= comment.get('user').get('id') %>"><%= comment.get('user').get('username') %></a> <span id="commentDate<%= comment.get('id') %>"></span></small>
-			</blockquote>
-			</div>
+				<script>
+					var day_<%= comment.get('id') %> = moment.utc("<%= comment.get('created_at')%>").fromNow();
+					$('#commentDate<%= comment.get('id') %>').append(day_<%= comment.get('id') %>);
+				</script>
+
+                <div class="carousel slide testimonials testimonials-v1">
+                    <div class="carousel-inner">
+                        <div class="item active">
+							<p><%= comment.get('body') %></p>
+                            <div class="testimonial-info">
+                                <img src="assets/fb_profile_pic.png" alt="">
+                                <span class="testimonial-author">
+									<a href="/#users/<%= comment.get('user').get('id') %>"><%= comment.get('user').get('username') %></a>
+                                    <em><span id="commentDate<%= comment.get('id') %>"></span></em>
+                                </span>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>                    
 		<% }) %>
 	</div>
 </div>
