@@ -3,7 +3,7 @@ GoodBoardsApp.Views.RootShow = Backbone.View.extend({
 
 	render: function(){
 		var renderedContent = this.template({
-			boardgames: this.collection
+			boardgames: this.collection.shuffle() //this is super jank fix later in fetch
 		});
 
 		this.$el.html(renderedContent);

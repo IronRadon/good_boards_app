@@ -42,4 +42,50 @@ D: Breadcrumbs
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
-}
+}<div id="carousel-root" class="carousel slide" data-ride="carousel" style="width: 700px
+margin:0 auto">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-root" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-root" data-slide-to="1"></li>
+    <li data-target="#carousel-root" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="/assets/got.jpg" alt="..." width= "700" height= "auto" style="margin:0 auto">
+      <div class="carousel-caption">
+        <div class="carousel-text"><h1>Welcome to Good Boards</h1></div>
+      </div> 
+    </div>
+    <div class="item">
+      <img src="/assets/got.jpg" alt="..." width= "700" height= "auto" style="margin:0 auto">
+      <div class="carousel-caption">
+        
+      </div> 
+    </div>
+    <div class="item">
+      <img src="/assets/got.jpg" alt="..." width= "700" height= "auto" style="margin:0 auto">
+      <div class="carousel-caption">
+  
+      </div> 
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control root" href="#carousel-root" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control root" href="#carousel-root" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<section id="masonry">
+        <%= console.log(boardgames) %>
+        <% boardgames.each(function(boardgame) { %>
+        <img src="<%= boardgame.get('image') %>">
+      <%  }) %>
+  </section>
+

@@ -1,10 +1,35 @@
-<h1> Welcome to GoodBoards</h1>
-	<section id="masonry">
-				<%= console.log(boardgames) %>
-				<% boardgames.each(function(boardgame) { %>
-				<img src="<%= boardgame.get('image') %>">
-			<%	}) %>
-	</section>
 
+<div class="jumbotron">
+  <h1>Welcome to GoodBoards!</h1>
+  <p>A place for boardgame reviews.</p>
+  <p><a class="btn btn-success btn-lg" role="button">Learn more</a></p>
+</div>
 
+<h1 style="text-align: center"> Featured Games</h1>
+<section class="row text-center">
+  <div class="col-xs-3">
+    <img src="<%=boardgames[0].get('image')%>" width="200px" height="auto">
+   <h2><a href="#boardgames/<%=boardgames[0].id%>"><%= boardgames[0].get('title')%></a></h2>
+   <p><%= boardgames[0].get('description').substring(0,400)%>...
+   </p>
+  </div>
+  <div class="col-xs-3">
+    <img src="<%=boardgames[1].get('image')%>" width="200px" height="auto">
+   <h2><a href="#boardgames/<%=boardgames[1].id%>"><%= boardgames[1].get('title')%></a></h2>
+   <p><%= boardgames[1].get('description').substring(0,400)%>...
+   </p>
+  </div>
+  <div class="col-xs-3">
+    <img src="<%=boardgames[2].get('image')%>" width="200px" height="auto">
+   <h2><a href="#boardgames/<%=boardgames[2].id%>"><%= boardgames[2].get('title')%></a></h2>
+   <p><%= boardgames[2].get('description').substring(0,400)%>...
+   </p>
+  </div>
+  <div class="col-xs-3">
+    <img src="<%=boardgames[3].get('image')%>" width="200px" height="auto">
+   <h2><a href="#boardgames/<%=boardgames[3].id%>"><%= boardgames[3].get('title')%></a></h2>
+   <p><%= boardgames[3].get('description').substring(0,400)%>...
+   </p>
+  </div>
+</section>
 

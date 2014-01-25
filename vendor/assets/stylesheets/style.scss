@@ -875,6 +875,30 @@ a.thumbnail {
 .carousel-v1 .carousel-arrow a.right i {
    right: 0;
 }
+/* Carousel Root 
+-------------------------------------*/
+.carousel-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+  }
+
+#carousel-root .carousel-caption {
+   left: 0;
+   right: 0;
+   bottom: 0; padding: 7px 15px;
+   background: transparent;
+}
+
+#carousel-root .carousel-caption p {
+   color: #fff;
+   margin-bottom: 0;
+}
+
+
+
+
 
 /*About Page
 ------------------------------------*/
@@ -1437,4 +1461,16 @@ ul.blog-tags a:hover i {
 
 .info-blocks .info-blocks-in p {
 	font-size: 12px;
+}
+
+.jumbotron h1{
+	text-align: center;
+}
+
+.jumbotron p{
+	text-align: center;
+}
+
+.jumbotron{
+	background: url('http://upload.wikimedia.org/wikipedia/commons/4/46/A_Game_Of_Thrones_board_game_detail.jpg')
 }

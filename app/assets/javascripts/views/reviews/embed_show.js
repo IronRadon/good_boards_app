@@ -36,7 +36,7 @@ GoodBoardsApp.Views.ReviewEmbedShow = Backbone.View.extend({
     				path: '/assets',
     				click: function(score, event) {
 						event.preventDefault();
-						var YN = confirm("YOU DONE CLICKED, SON");
+						var YN = confirm("Please confirm your rating");
 						console.log(score)
 
 						if (YN === true) {
