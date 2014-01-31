@@ -8,8 +8,8 @@ development:
   database: good_boards_app_dev
   pool: 5
   timeout: 5000
-  username: teaologist
-  password: e31V%nRD
+  username: #YOUR USERNAME HERE
+  password: #YOUR PASSWORD HERE
 
 
 # Warning: The database defined as "test" will be erased and
