@@ -1,0 +1,10 @@
+# rename this file to database.yml and fill in your username/password to user postgreSQL
+
+
+development:
+  adapter: postgresql
+  database: good_boards_app_dev
+  pool: 5
+  timeout: 5000
+  username: #YOUR_USERNAME
+  password: #YOUR_PASSWORD
