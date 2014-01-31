@@ -24,7 +24,7 @@ Both the searches and scrape work in conjunction through heavy modification of t
 
 
 ###A Note on Databases:
-This application uses PostgreSQL. In addition, the standard `database.yml` file has been renamed to `example_database.yml`. In order to clone the repository, first rename the example file to `database.yml`. 
+This application uses PostgreSQL. In addition, the standard `database.yml` file has been renamed to `example_database.yml`. In order to run the application on your local machine, clone or fork the repo and first rename the example file to `database.yml`. 
 
 ####For Postgres:
 Update the username and password to your postgres credentials
