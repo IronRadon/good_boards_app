@@ -13,7 +13,7 @@ This is a light clone of GoodReads for boardgames. Users can review boardgames, 
 
 Both the searches and scrape work in conjunction through heavy modification of the Twitter typeahead library and the FriendlyURI gem. 
 
-**Single-Page:** The Backbone.js framework is used to create a fully single page application, from sign in to sign out.  
+**Single-Page:** The Backbone.js framework is used to create a fully single page application, from sign in to sign out. The navigation bar view contains its own logic to create a smooth rendering experience upon sign in/sign out.
 
 ###Technologies and Languages used:
 * Ruby/Rails, in particular Nokogiri, FriendlyURI
