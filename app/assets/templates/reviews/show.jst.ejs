@@ -4,12 +4,20 @@
 </script>
 
 <div class="col-lg-3">
-	<div id="boardgame-info"></div>
+    <div class="panel panel-default">
+    	<div class="panel-body"> 
+			<div id="boardgame-info"></div>
+		</div>
+	</div>
 </div>
 
 <div class="col-lg-9">
-	    <h1><%= review.get('title')%></h1>
-	    <hr>
+	<div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><%= review.get('title')%></h4>
+        </div>
+        <div class="panel-body">
+
 	    <p>
 	        <span class="glyphicon glyphicon-time"></span> <span id="userWithDate">Reviewed by <a href="/#users/<%= user.get('id') %>"><%= user.get('username') %></a> </span></p>
 	    <hr>
@@ -57,5 +65,7 @@
                     </div>
                 </div>                    
 		<% }) %>
+		</div>
+	</div>
 	</div>
 </div>

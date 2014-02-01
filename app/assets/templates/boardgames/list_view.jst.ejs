@@ -1,14 +1,17 @@
-<div class="row border-radius">
-	<div class="col-xs-4 col-xs-offset-2">
-<a href="#/boardgames/<%=boardgame.id %>"><%= boardgame.get('title') %></a>
-<br>
-<img src="<%= boardgame.get('image') %>" height="200px" width="auto">
-<br>
-Average Rating:<div id="star"></div>
-<%= boardgame.get('rating') %>
-</div>
-
-<div class="col-xs-4">
-<%= boardgame.get('description') %>
-</div>
+<div class="search-blocks search-blocks-top-sea">
+    <div class="row">
+        <div class="col-md-3">
+        	<a href="#/boardgames/<%=boardgame.id %>">
+	        	<h2><%= boardgame.get('title') %></h2>
+	            <img class="img-responsive" src="<%= boardgame.get('image') %>"  width="100%"/>
+            </a>
+            <ul class="list-unstyled">
+               <span id='star'></span>
+               <li><div id='avg-rating'></div> <%= boardgame.get('rating') %></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <p class="game-description"><%= boardgame.get('description') %></p>
+        </div>
+    </div>                            
 </div>
