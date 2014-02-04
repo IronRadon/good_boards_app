@@ -15,6 +15,7 @@
 //= require jquery.serializeJSON.min
 //= require jquery.raty
 //= require jquery.dotdotdot
+//= require jquery.zoom
 //= require typeahead
 //= require moment
 //= require bootstrap
