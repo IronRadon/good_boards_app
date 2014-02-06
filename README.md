@@ -45,4 +45,9 @@ development:
 
 In the `Gemfile`:
 
-Remove `gem 'pg'` and replace it with: ` gem 'sqlite3'`
+Remove `gem 'pg'` and replace it with: ` gem 'sqlite3'`o
+
+
+---
+###To-Dos and General Notes
+* Currently the images on GoodBoards are scraped and hyperlinked. The AWS functionality for scrape and automatic save are to be built out.
