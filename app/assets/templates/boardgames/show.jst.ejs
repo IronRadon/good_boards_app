@@ -1,11 +1,21 @@
-<div class="row">
-  <div class="col-md-7">
-    <img src="<%= boardgame.get('image') %>" width="auto" height="300px">
-    <div id="star"></div>Current Rating:<%= boardgame.get('rating') %>
-  </div>
-  <div class="col-md-5">
-  	<h2><%= boardgame.get('title') %></h2>
-		<div class="bs-example">
+  <!-- Row of columns -->
+  <div class="row-fluid"> <!-- BEGIN ROW -->
+    <div class="col-lg-3"> <!-- FIRST COL -->
+      <div class="panel panel-default">
+        <div class="panel-body"> 
+          <h4><%= boardgame.get('title') %></h4>
+          <div><img class="pull-left" src="<%= boardgame.get('image') %>" width="100%" height="auto"></div>
+          <div style="clear:both;" id="star"></div>
+          <p>Current Rating:<%= boardgame.get('rating') %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9"> <!-- SECOND COL -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Stats</h4>
+        </div>
+        <div class="panel-body">
           <ul class="list-group">
             <li class="list-group-item">
               <span class="badge"><%= boardgame.get('yearpublished') %></span>
@@ -29,22 +39,30 @@
             </li>                
           </ul>
         </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Description</h4>
+        </div>
+        <div class="panel-body">
+          <p><%= boardgame.get('description') %></p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Reviews <small><a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Add Review</a><small></h4>
+        </div>
+        <div class="panel-body">
+          <% if (reviews.length > 0) { %>
+            <h2>Reviews </h2>
+            <%reviews.each(function(review) { %>
+                <div class="embedded" id="<%=review.get('id')%>"></div>
+            <% }) %>
+          <% }else{ %>
+            <h4><a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Be the first to review this Game</a></h4>
+          <% } %>
+        </div>
+      </div>
+    </div>    
   </div>
-</div>
-
-<div class="row">
-<div class ="col-xs-8 col-xs-offset-2">
-<h2>Description</h2>
-	<%= boardgame.get('description') %>
-<br>
-<br>
-<% if (reviews.length > 0) { %>
-	<h2>Reviews <small><a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Add Review</a><small></h2>
-	<%reviews.each(function(review) { %>
-			<div class="embedded" id="<%=review.get('id')%>"></div>
-	<% }) %>
-<% }else{ %>
-	<h2>Reviews <small></h2>
-	<h4><a href="#boardgames/<%= boardgame.get('id') %>/reviews/new">Be the first to review this Game</a></h4>
-<% } %>
-</div>
+  <!-- END ROW -->

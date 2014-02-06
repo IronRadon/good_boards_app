@@ -7,3 +7,11 @@
 <% boardgames.each(function(boardgame){ %>
 	<div class="embedded" id="<%=boardgame.get('id')%>"></div>
 <%	}) %>
+
+<script>
+	$(".game-description").dotdotdot({
+		ellipsis	: '... ',
+		fallbackToLetter: true,
+		height: 250
+	});
+</script>

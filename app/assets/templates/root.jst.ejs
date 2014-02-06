@@ -8,26 +8,34 @@
 <h1 style="text-align: center"> Featured Games</h1>
 <section class="row text-center">
   <div class="col-xs-3">
-    <img src="<%=boardgames[0].get('image')%>" width="200px" height="auto">
-   <h2><a href="#boardgames/<%=boardgames[0].id%>"><%= boardgames[0].get('title')%></a></h2>
+    <a href="#boardgames/<%=boardgames[0].id%>">
+      <img src="<%=boardgames[0].get('image')%>" width="200px" height="auto">
+      <h2><%= boardgames[0].get('title')%></h2>
+    </a>
    <p><%= boardgames[0].get('description').substring(0,400)%>...
    </p>
   </div>
   <div class="col-xs-3">
-    <img src="<%=boardgames[1].get('image')%>" width="200px" height="auto">
-   <h2><a href="#boardgames/<%=boardgames[1].id%>"><%= boardgames[1].get('title')%></a></h2>
+    <a href="#boardgames/<%=boardgames[1].id%>">
+      <img src="<%=boardgames[1].get('image')%>" width="200px" height="auto">
+      <h2><%= boardgames[1].get('title')%></h2>
+    </a>
    <p><%= boardgames[1].get('description').substring(0,400)%>...
    </p>
   </div>
   <div class="col-xs-3">
-    <img src="<%=boardgames[2].get('image')%>" width="200px" height="auto">
-   <h2><a href="#boardgames/<%=boardgames[2].id%>"><%= boardgames[2].get('title')%></a></h2>
+    <a href="#boardgames/<%=boardgames[2].id%>">
+      <img src="<%=boardgames[2].get('image')%>" width="200px" height="auto">
+      <h2><%= boardgames[2].get('title')%></h2>
+    </a>
    <p><%= boardgames[2].get('description').substring(0,400)%>...
    </p>
   </div>
   <div class="col-xs-3">
-    <img src="<%=boardgames[3].get('image')%>" width="200px" height="auto">
-   <h2><a href="#boardgames/<%=boardgames[3].id%>"><%= boardgames[3].get('title')%></a></h2>
+    <a href="#boardgames/<%=boardgames[3].id%>">
+      <img src="<%=boardgames[3].get('image')%>" width="200px" height="auto">
+      <h2><%= boardgames[3].get('title')%></h2>
+    </a>
    <p><%= boardgames[3].get('description').substring(0,400)%>...
    </p>
   </div>
