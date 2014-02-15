@@ -51,3 +51,6 @@ Remove `gem 'pg'` and replace it with: ` gem 'sqlite3'`o
 ---
 ###To-Dos and General Notes
 * Currently the images on GoodBoards are scraped and hyperlinked. The AWS functionality for scrape and automatic save are to be built out.
+*Add spinner or flash message for async information fetching; implement polling; limit 1 sec total interval?
+*Refine branch with Google result scraping
+*Re-think typeahead information fetching for keeping cache in sync with results; make sure to not add garbled results, only ones that return true results.
